@@ -29,7 +29,13 @@ class ViewController: UIViewController {
                 signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 signInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
             ])
+        } else {
+            playSong()
         }
+    }
+    
+    private func playSong() {
+        SpotifyPlayer.shared.play("3IAfUEeaXRX9s9UdKOJrFI")
     }
     
     private func showAlert(title: String, message: String) {
@@ -50,6 +56,7 @@ class ViewController: UIViewController {
             }
             
             self?.signInButton.removeFromSuperview()
+            self?.playSong()
         }
         
         present(viewController, animated: true)

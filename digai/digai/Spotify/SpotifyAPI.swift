@@ -20,6 +20,24 @@ final class SpotifyAPI {
         return "Bearer \(token)"
     }
     
+    func getTrack(for id: String, completion: @escaping (AudioTrack?) -> Void) {
+        guard let accessToken = accessToken else { completion(nil); return }
+        
+        var components = URLComponents(string: "https://api.spotify.com")
+        components?.path = "/v1/tracks/\(id)"
+        
+        guard let url = components?.url else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+        
+        request.fetch { track in
+            completion(track)
+        }
+    }
+    
     func getAccessToken(from code: String, completion: @escaping (AuthResponse?) -> Void) {
         guard let basicToken = basicToken else { completion(nil); return }
         
