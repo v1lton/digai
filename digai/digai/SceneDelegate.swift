@@ -17,5 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = GameViewController()
         window?.makeKeyAndVisible()
     }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        SpotifyManager.shared.refreshAccessToken { _ in }
+    }
 }
 
