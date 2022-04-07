@@ -16,6 +16,8 @@
 		8942614427F64EB900341F8B /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614327F64EB900341F8B /* GameViewModel.swift */; };
 		8942614627F64EC900341F8B /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614527F64EC900341F8B /* ResultViewModel.swift */; };
 		8942614827F64ED600341F8B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614727F64ED600341F8B /* ResultViewController.swift */; };
+		8942614C27FC7E8200341F8B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8942614B27FC7E8200341F8B /* iCarousel.m */; };
+		89BB91BF27FDCE6E005D0371 /* teste.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 89BB91BE27FDCE6E005D0371 /* teste.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,10 @@
 		8942614327F64EB900341F8B /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		8942614527F64EC900341F8B /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		8942614727F64ED600341F8B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8942614927FC7E7400341F8B /* iCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "digai-Bridging-Header.h"; sourceTree = "<group>"; };
+		8942614B27FC7E8200341F8B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		89BB91BE27FDCE6E005D0371 /* teste.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = teste.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 		8942612A27F64CBB00341F8B /* digai */ = {
 			isa = PBXGroup;
 			children = (
+				89BB91BD27FDCE32005D0371 /* Sounds */,
 				8942614027F64E8E00341F8B /* Result */,
 				8942613F27F64E7000341F8B /* Game */,
 				8942612B27F64CBB00341F8B /* AppDelegate.swift */,
@@ -70,6 +77,9 @@
 				8942613427F64CBF00341F8B /* Assets.xcassets */,
 				8942613627F64CBF00341F8B /* LaunchScreen.storyboard */,
 				8942613927F64CBF00341F8B /* Info.plist */,
+				8942614927FC7E7400341F8B /* iCarousel.h */,
+				8942614B27FC7E8200341F8B /* iCarousel.m */,
+				8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */,
 			);
 			path = digai;
 			sourceTree = "<group>";
@@ -90,6 +100,14 @@
 				8942614727F64ED600341F8B /* ResultViewController.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		89BB91BD27FDCE32005D0371 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				89BB91BE27FDCE6E005D0371 /* teste.m4a */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +142,7 @@
 				TargetAttributes = {
 					8942612727F64CBB00341F8B = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -152,6 +171,7 @@
 			files = (
 				8942613827F64CBF00341F8B /* LaunchScreen.storyboard in Resources */,
 				8942613527F64CBF00341F8B /* Assets.xcassets in Resources */,
+				89BB91BF27FDCE6E005D0371 /* teste.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +187,7 @@
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				8942613027F64CBB00341F8B /* ViewController.swift in Sources */,
 				8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */,
+				8942614C27FC7E8200341F8B /* iCarousel.m in Sources */,
 				8942614427F64EB900341F8B /* GameViewModel.swift in Sources */,
 				8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */,
 			);
@@ -305,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D84M4LK87S;
@@ -312,7 +334,6 @@
 				INFOPLIST_FILE = digai/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,6 +344,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = multimidia.digai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "digai/digai-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -333,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D84M4LK87S;
@@ -340,7 +364,6 @@
 				INFOPLIST_FILE = digai/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -351,6 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = multimidia.digai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "digai/digai-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
