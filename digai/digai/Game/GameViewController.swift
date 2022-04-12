@@ -98,15 +98,9 @@ class GameViewController: UIViewController {
     }
     
     private func playSong(atIndex index: Int) {
-        let pathToSound = Bundle.main.path(forResource: "teste", ofType: "m4a")!
-        let url = URL(fileURLWithPath: pathToSound)
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
-        } catch {
-            return
-        }
+        guard let songTitle = viewModel.getSongTitle(at: index)
+        else { return }
+        SpotifyPlayer.shared.play(songTitle)
     }
     
     // MARK: - ACTIONS

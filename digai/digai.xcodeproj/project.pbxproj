@@ -16,6 +16,8 @@
 		17820A0B27FA19EB00B49CA2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0A27FA19EB00B49CA2 /* Album.swift */; };
 		17820A0D27FA19F800B49CA2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0C27FA19F800B49CA2 /* Image.swift */; };
 		17820A0F27FA1A0A00B49CA2 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0E27FA1A0A00B49CA2 /* AuthResponse.swift */; };
+		2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD436DDCA126139424C41C /* Pods_digai.framework */; };
+		890F7E7627FF40B500B628DC /* SpotifyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F7E7527FF40B500B628DC /* SpotifyConfig.swift */; };
 		8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612B27F64CBB00341F8B /* AppDelegate.swift */; };
 		8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612D27F64CBB00341F8B /* SceneDelegate.swift */; };
 		8942613027F64CBB00341F8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612F27F64CBB00341F8B /* ViewController.swift */; };
@@ -39,6 +41,9 @@
 		17820A0A27FA19EB00B49CA2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		17820A0C27FA19F800B49CA2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		17820A0E27FA1A0A00B49CA2 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		3B97B41F53F0FEBA157211ED /* Pods-digai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.debug.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.debug.xcconfig"; sourceTree = "<group>"; };
+		7FFD436DDCA126139424C41C /* Pods_digai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		890F7E7527FF40B500B628DC /* SpotifyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConfig.swift; sourceTree = "<group>"; };
 		8942612827F64CBB00341F8B /* digai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8942612B27F64CBB00341F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8942612D27F64CBB00341F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "digai-Bridging-Header.h"; sourceTree = "<group>"; };
 		8942614B27FC7E8200341F8B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		89BB91BE27FDCE6E005D0371 /* teste.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = teste.m4a; sourceTree = "<group>"; };
+		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +79,6 @@
 			children = (
 				17820A0927FA19DD00B49CA2 /* Models */,
 				178209FF27FA17E900B49CA2 /* SpotifyAPI.swift */,
-				178209F727FA17D700B49CA2 /* SpotifyConfig.swift */,
 				178209FD27FA17E900B49CA2 /* SpotifyManager.swift */,
 				178209FC27FA17E900B49CA2 /* SpotifyPlayer.swift */,
 				178209FE27FA17E900B49CA2 /* SpotifySignInViewController.swift */,
@@ -99,11 +105,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		24734EE95FF27D97C7B0B19A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B97B41F53F0FEBA157211ED /* Pods-digai.debug.xcconfig */,
+				9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8942611F27F64CBB00341F8B = {
 			isa = PBXGroup;
 			children = (
 				8942612A27F64CBB00341F8B /* digai */,
 				8942612927F64CBB00341F8B /* Products */,
+				24734EE95FF27D97C7B0B19A /* Pods */,
+				CD2017C96E6275BAA105F80A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +150,7 @@
 				8942614927FC7E7400341F8B /* iCarousel.h */,
 				8942614B27FC7E8200341F8B /* iCarousel.m */,
 				8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */,
+				890F7E7527FF40B500B628DC /* SpotifyConfig.swift */,
 			);
 			path = digai;
 			sourceTree = "<group>";
@@ -162,6 +181,14 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		CD2017C96E6275BAA105F80A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FFD436DDCA126139424C41C /* Pods_digai.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8942613C27F64CBF00341F8B /* Build configuration list for PBXNativeTarget "digai" */;
 			buildPhases = (
+				A345C5DA48105CAE037279FD /* [CP] Check Pods Manifest.lock */,
 				8942612427F64CBB00341F8B /* Sources */,
 				8942612527F64CBB00341F8B /* Frameworks */,
 				8942612627F64CBB00341F8B /* Resources */,
+				0C05BD740E9981F7046694A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +258,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C05BD740E9981F7046694A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-digai/Pods-digai-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-digai/Pods-digai-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-digai/Pods-digai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A345C5DA48105CAE037279FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-digai-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8942612427F64CBB00341F8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -242,6 +313,7 @@
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* SpotifyPlayer.swift in Sources */,
 				17820A0B27FA19EB00B49CA2 /* Album.swift in Sources */,
+				890F7E7627FF40B500B628DC /* SpotifyConfig.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				17820A0427FA17E900B49CA2 /* SpotifySignInViewController.swift in Sources */,
 				8942613027F64CBB00341F8B /* ViewController.swift in Sources */,
@@ -384,6 +456,7 @@
 		};
 		8942613D27F64CBF00341F8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B97B41F53F0FEBA157211ED /* Pods-digai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -415,6 +488,7 @@
 		};
 		8942613E27F64CBF00341F8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
