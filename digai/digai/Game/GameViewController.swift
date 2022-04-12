@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import SDWebImage
 import UIKit
 
 class GameViewController: UIViewController {
@@ -46,8 +47,7 @@ class GameViewController: UIViewController {
     private lazy var stopButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("STOP", for: .normal)
-        button.setTitleColor(.red, for: .normal)
+        button.setImage(UIImage(named: "buttonImage"), for: .normal)
         button.addTarget(self, action: #selector(didTapStopButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -56,9 +56,11 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         setupView()
         buildViewHierarchy()
         constraintUI()
+        playSong(atIndex: 0)
     }
     
     // MARK: - SETUP
@@ -98,15 +100,26 @@ class GameViewController: UIViewController {
     }
     
     private func playSong(atIndex index: Int) {
-        guard let songTitle = viewModel.getSongTitle(at: index)
-        else { return }
-        SpotifyPlayer.shared.play(songTitle)
+        guard let audioTrack = viewModel.getAudioTrack(atIndex: index) else { return }
+        SpotifyPlayer.shared.play(audioTrack)
     }
     
     // MARK: - ACTIONS
     
     @objc private func didTapStopButton(_ sender: UIButton) {
         print("STOP!")
+    }
+    
+    public func reloadCarouselData() {
+        albunsCarousel.reloadData()
+    }
+}
+
+// MARK: - GameViewModelDelegate
+
+extension GameViewController: GameViewModelDelegate {
+    func didSetTracks() {
+        albunsCarousel.reloadData()
     }
 }
 
@@ -142,8 +155,18 @@ extension GameViewController: iCarouselDataSource {
                                                   width: self.view.frame.size.width/1.2,
                                                   height: 300))
         }
+
+        viewModel.getAlbumURL(forIndex: index) { result in
+            switch result {
+            case .success(let albumURL):
+                imageView.sd_setImage(with: URL(string: albumURL))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
         
-        imageView.image = UIImage(named: "example")
+        imageView.layer.cornerRadius = 16
+        imageView.layer.masksToBounds = true
         
         return imageView
     }

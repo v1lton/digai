@@ -17,7 +17,7 @@ final class SpotifyPlayer {
     private init() {}
     
     func play(_ id: String) {
-        api.getTrack(for: id) { track in
+        api.getTrack(for: "4LRPiXqCikLlN15c3yImP7") { track in
             guard let track = track else { return }
             SpotifyPlayer.shared.play(track)
         }
