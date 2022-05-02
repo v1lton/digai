@@ -57,6 +57,14 @@ class GameViewModel {
         return nil
     }
     
+    public func getAudioTrack(at index: Int) -> CreateRoomResponse.Track? {
+        guard let digaiResponse = digaiResponse else { return nil }
+        if index < digaiResponse.tracks.count {
+            return digaiResponse.tracks[index]
+        }
+        return nil
+    }
+    
     public func updateSongTitle(at index: Int, with songTitle: String?) {
         self.userGuesses[index] = songTitle
     }
@@ -69,7 +77,7 @@ class GameViewModel {
     
     private func setTracks() {
         let createRoomRequest = CreateRoomRequest(steps: 5,
-                                                  owner: .init(name: "Joigtlton",
+                                                  owner: .init(name: "kk",
                                                                crowns: 0),
                                                   genres: ["funk"])
         api.createRoom(for: createRoomRequest) { [weak self] createRoom in

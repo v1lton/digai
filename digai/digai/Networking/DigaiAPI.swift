@@ -12,7 +12,7 @@ final class DigaiAPI {
     // MARK: - PRIVATE METHODS
     
     private var baseURL: String {
-        return "http://localhost:300"
+        return "http://localhost:3000"
     }
     
     // MARK: - PUBLIC METHODS
