@@ -60,7 +60,7 @@ class GameViewController: UIViewController {
         setupView()
         buildViewHierarchy()
         constraintUI()
-        playSong(atIndex: 0)
+        //playSong(atIndex: 0)
     }
     
     // MARK: - SETUP
@@ -100,8 +100,8 @@ class GameViewController: UIViewController {
     }
     
     private func playSong(atIndex index: Int) {
-        guard let audioTrack = viewModel.getAudioTrack(atIndex: index) else { return }
-        SpotifyPlayer.shared.play(audioTrack)
+        //guard let audioTrack = viewModel.getAudioTrack(atIndex: index) else { return }
+        //SpotifyPlayer.shared.play(audioTrack)
     }
     
     // MARK: - ACTIONS
@@ -155,14 +155,9 @@ extension GameViewController: iCarouselDataSource {
                                                   width: self.view.frame.size.width/1.2,
                                                   height: 300))
         }
-
-        viewModel.getAlbumURL(forIndex: index) { result in
-            switch result {
-            case .success(let albumURL):
-                imageView.sd_setImage(with: URL(string: albumURL))
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+        
+        if let albumURL = viewModel.getAlbumURL(at: index) {
+            imageView.sd_setImage(with: URL(string: albumURL))
         }
         
         imageView.layer.cornerRadius = 16

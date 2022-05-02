@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */; };
 		17820A0227FA17E900B49CA2 /* SpotifyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* SpotifyPlayer.swift */; };
-		17820A0327FA17E900B49CA2 /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FD27FA17E900B49CA2 /* SpotifyManager.swift */; };
 		17820A0427FA17E900B49CA2 /* SpotifySignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FE27FA17E900B49CA2 /* SpotifySignInViewController.swift */; };
-		17820A0527FA17E900B49CA2 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* SpotifyAPI.swift */; };
+		17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* DigaiAPI.swift */; };
 		17820A0627FA17E900B49CA2 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0027FA17E900B49CA2 /* AudioTrack.swift */; };
 		17820A0B27FA19EB00B49CA2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0A27FA19EB00B49CA2 /* Album.swift */; };
 		17820A0D27FA19F800B49CA2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0C27FA19F800B49CA2 /* Image.swift */; };
@@ -29,14 +28,24 @@
 		8942614827F64ED600341F8B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614727F64ED600341F8B /* ResultViewController.swift */; };
 		8942614C27FC7E8200341F8B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8942614B27FC7E8200341F8B /* iCarousel.m */; };
 		89BB91BF27FDCE6E005D0371 /* teste.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 89BB91BE27FDCE6E005D0371 /* teste.m4a */; };
+		89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB3112281F32920068909C /* CreateRoomRequest.swift */; };
+		89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB3117281F33720068909C /* CreateRoomResponse.swift */; };
+		89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA8E282025F200D5F23E /* JoinRoomRequest.swift */; };
+		89DACA912820265600D5F23E /* JoinRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA902820265600D5F23E /* JoinRoomResponse.swift */; };
+		89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA922820268F00D5F23E /* FetchRoomsResponse.swift */; };
+		89DACA95282026FB00D5F23E /* ExitRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA94282026FB00D5F23E /* ExitRoomRequest.swift */; };
+		89DACA972820272C00D5F23E /* ExitRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA962820272C00D5F23E /* ExitRoomResponse.swift */; };
+		89DACA992820276E00D5F23E /* UpdateRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA982820276E00D5F23E /* UpdateRoomRequest.swift */; };
+		89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */; };
+		89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */; };
+		89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		178209FC27FA17E900B49CA2 /* SpotifyPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyPlayer.swift; sourceTree = "<group>"; };
-		178209FD27FA17E900B49CA2 /* SpotifyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
 		178209FE27FA17E900B49CA2 /* SpotifySignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifySignInViewController.swift; sourceTree = "<group>"; };
-		178209FF27FA17E900B49CA2 /* SpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
+		178209FF27FA17E900B49CA2 /* DigaiAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigaiAPI.swift; sourceTree = "<group>"; };
 		17820A0027FA17E900B49CA2 /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		17820A0A27FA19EB00B49CA2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		17820A0C27FA19F800B49CA2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -59,6 +68,17 @@
 		8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "digai-Bridging-Header.h"; sourceTree = "<group>"; };
 		8942614B27FC7E8200341F8B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		89BB91BE27FDCE6E005D0371 /* teste.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = teste.m4a; sourceTree = "<group>"; };
+		89CB3112281F32920068909C /* CreateRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomRequest.swift; sourceTree = "<group>"; };
+		89CB3117281F33720068909C /* CreateRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomResponse.swift; sourceTree = "<group>"; };
+		89DACA8E282025F200D5F23E /* JoinRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomRequest.swift; sourceTree = "<group>"; };
+		89DACA902820265600D5F23E /* JoinRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomResponse.swift; sourceTree = "<group>"; };
+		89DACA922820268F00D5F23E /* FetchRoomsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRoomsResponse.swift; sourceTree = "<group>"; };
+		89DACA94282026FB00D5F23E /* ExitRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitRoomRequest.swift; sourceTree = "<group>"; };
+		89DACA962820272C00D5F23E /* ExitRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitRoomResponse.swift; sourceTree = "<group>"; };
+		89DACA982820276E00D5F23E /* UpdateRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRoomRequest.swift; sourceTree = "<group>"; };
+		89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRoomResponse.swift; sourceTree = "<group>"; };
+		89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomRequest.swift; sourceTree = "<group>"; };
+		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				17820A0927FA19DD00B49CA2 /* Models */,
-				178209FF27FA17E900B49CA2 /* SpotifyAPI.swift */,
-				178209FD27FA17E900B49CA2 /* SpotifyManager.swift */,
 				178209FC27FA17E900B49CA2 /* SpotifyPlayer.swift */,
 				178209FE27FA17E900B49CA2 /* SpotifySignInViewController.swift */,
 			);
@@ -111,7 +129,6 @@
 				3B97B41F53F0FEBA157211ED /* Pods-digai.debug.xcconfig */,
 				9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -136,21 +153,20 @@
 		8942612A27F64CBB00341F8B /* digai */ = {
 			isa = PBXGroup;
 			children = (
+				89CB30F7281F062A0068909C /* UI */,
+				89CB30F6281F061B0068909C /* Networking */,
 				89BB91BD27FDCE32005D0371 /* Sounds */,
 				17820A1027FA1A1E00B49CA2 /* Extensions */,
 				178209F627FA17D700B49CA2 /* Spotify */,
-				8942614027F64E8E00341F8B /* Result */,
-				8942613F27F64E7000341F8B /* Game */,
 				8942612B27F64CBB00341F8B /* AppDelegate.swift */,
 				8942612D27F64CBB00341F8B /* SceneDelegate.swift */,
-				8942612F27F64CBB00341F8B /* ViewController.swift */,
 				8942613427F64CBF00341F8B /* Assets.xcassets */,
 				8942613627F64CBF00341F8B /* LaunchScreen.storyboard */,
 				8942613927F64CBF00341F8B /* Info.plist */,
+				890F7E7527FF40B500B628DC /* SpotifyConfig.swift */,
 				8942614927FC7E7400341F8B /* iCarousel.h */,
 				8942614B27FC7E8200341F8B /* iCarousel.m */,
 				8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */,
-				890F7E7527FF40B500B628DC /* SpotifyConfig.swift */,
 			);
 			path = digai;
 			sourceTree = "<group>";
@@ -179,6 +195,51 @@
 				89BB91BE27FDCE6E005D0371 /* teste.m4a */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		89CB30F6281F061B0068909C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				178209FF27FA17E900B49CA2 /* DigaiAPI.swift */,
+				89CB3116281F333D0068909C /* Requests */,
+				89CB3111281F32680068909C /* Responses */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		89CB30F7281F062A0068909C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8942612F27F64CBB00341F8B /* ViewController.swift */,
+				8942614027F64E8E00341F8B /* Result */,
+				8942613F27F64E7000341F8B /* Game */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		89CB3111281F32680068909C /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				89CB3117281F33720068909C /* CreateRoomResponse.swift */,
+				89DACA902820265600D5F23E /* JoinRoomResponse.swift */,
+				89DACA922820268F00D5F23E /* FetchRoomsResponse.swift */,
+				89DACA962820272C00D5F23E /* ExitRoomResponse.swift */,
+				89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */,
+				89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		89CB3116281F333D0068909C /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				89CB3112281F32920068909C /* CreateRoomRequest.swift */,
+				89DACA8E282025F200D5F23E /* JoinRoomRequest.swift */,
+				89DACA94282026FB00D5F23E /* ExitRoomRequest.swift */,
+				89DACA982820276E00D5F23E /* UpdateRoomRequest.swift */,
+				89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		CD2017C96E6275BAA105F80A /* Frameworks */ = {
@@ -305,24 +366,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */,
 				8942614227F64EAC00341F8B /* GameViewController.swift in Sources */,
-				17820A0327FA17E900B49CA2 /* SpotifyManager.swift in Sources */,
 				8942614627F64EC900341F8B /* ResultViewModel.swift in Sources */,
-				17820A0527FA17E900B49CA2 /* SpotifyAPI.swift in Sources */,
+				17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */,
 				17820A0F27FA1A0A00B49CA2 /* AuthResponse.swift in Sources */,
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* SpotifyPlayer.swift in Sources */,
+				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
+				89DACA912820265600D5F23E /* JoinRoomResponse.swift in Sources */,
 				17820A0B27FA19EB00B49CA2 /* Album.swift in Sources */,
+				89DACA972820272C00D5F23E /* ExitRoomResponse.swift in Sources */,
 				890F7E7627FF40B500B628DC /* SpotifyConfig.swift in Sources */,
+				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				17820A0427FA17E900B49CA2 /* SpotifySignInViewController.swift in Sources */,
+				89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */,
+				89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */,
 				8942613027F64CBB00341F8B /* ViewController.swift in Sources */,
 				17820A0D27FA19F800B49CA2 /* Image.swift in Sources */,
 				17820A0627FA17E900B49CA2 /* AudioTrack.swift in Sources */,
 				8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */,
+				89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */,
 				8942614C27FC7E8200341F8B /* iCarousel.m in Sources */,
 				8942614427F64EB900341F8B /* GameViewModel.swift in Sources */,
 				8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */,
+				89DACA95282026FB00D5F23E /* ExitRoomRequest.swift in Sources */,
+				89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */,
+				89DACA992820276E00D5F23E /* UpdateRoomRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
