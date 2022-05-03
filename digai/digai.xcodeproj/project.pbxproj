@@ -36,6 +36,7 @@
 		89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */; };
 		89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */; };
 		89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */; };
+		89DACAA32820B51300D5F23E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA22820B51300D5F23E /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRoomResponse.swift; sourceTree = "<group>"; };
 		89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomRequest.swift; sourceTree = "<group>"; };
 		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
+		89DACAA22820B51300D5F23E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 		89CB30F6281F061B0068909C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				89DACAA12820B50800D5F23E /* Models */,
 				178209FF27FA17E900B49CA2 /* DigaiAPI.swift */,
 				89CB3116281F333D0068909C /* Requests */,
 				89CB3111281F32680068909C /* Responses */,
@@ -231,6 +234,14 @@
 				89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		89DACAA12820B50800D5F23E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				89DACAA22820B51300D5F23E /* Track.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CD2017C96E6275BAA105F80A /* Frameworks */ = {
@@ -380,6 +391,7 @@
 				8942614427F64EB900341F8B /* GameViewModel.swift in Sources */,
 				8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */,
 				89DACA95282026FB00D5F23E /* ExitRoomRequest.swift in Sources */,
+				89DACAA32820B51300D5F23E /* Track.swift in Sources */,
 				89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */,
 				89DACA992820276E00D5F23E /* UpdateRoomRequest.swift in Sources */,
 			);

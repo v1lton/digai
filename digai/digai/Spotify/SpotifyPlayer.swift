@@ -24,7 +24,7 @@ final class SpotifyPlayer {
         player?.play()
     }
     
-    func play (_ track: CreateRoomResponse.Track) {
+    func play (_ track: Track) {
         guard let url = URL(string: track.preview) else { return }
         player = AVPlayer(url: url)
         player?.play()
