@@ -39,6 +39,7 @@
 		89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */; };
 		89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */; };
 		89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */; };
+		D74CFA3D2820AF7100E3818B /* JoinRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomRequest.swift; sourceTree = "<group>"; };
 		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
+		D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,8 @@
 		89CB30F7281F062A0068909C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D74CFA3B2820746000E3818B /* JoinRoom */,
+				D74CFA3A2820744500E3818B /* CreateRoom */,
 				8942612F27F64CBB00341F8B /* ViewController.swift */,
 				8942614027F64E8E00341F8B /* Result */,
 				8942613F27F64E7000341F8B /* Game */,
@@ -248,6 +252,21 @@
 				7FFD436DDCA126139424C41C /* Pods_digai.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D74CFA3A2820744500E3818B /* CreateRoom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateRoom;
+			sourceTree = "<group>";
+		};
+		D74CFA3B2820746000E3818B /* JoinRoom */ = {
+			isa = PBXGroup;
+			children = (
+				D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */,
+			);
+			path = JoinRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */,
+				D74CFA3D2820AF7100E3818B /* JoinRoomViewController.swift in Sources */,
 				8942614227F64EAC00341F8B /* GameViewController.swift in Sources */,
 				8942614627F64EC900341F8B /* ResultViewModel.swift in Sources */,
 				17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */,

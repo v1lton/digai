@@ -14,12 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = GameViewController()
+        window?.rootViewController = JoinRoomViewController()
         window?.makeKeyAndVisible()
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        SpotifyManager.shared.refreshAccessToken { _ in }
+        //SpotifyManager.shared.refreshAccessToken { _ in }
     }
 }
 
