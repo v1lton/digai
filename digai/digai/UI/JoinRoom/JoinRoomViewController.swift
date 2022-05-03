@@ -12,7 +12,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     lazy var viewTitle: UILabel = {
         let label = UILabel()
         label.text = "Jogaço"
-        label.font = UIFont(name: "Rubik" , size: 40)
+        label.font = UIFont(name: "Rubik-Bold" , size: 40)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -21,7 +21,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     lazy var nameTexfieldTitle: UILabel = {
         let label = UILabel()
         label.text = "Nome"
-        label.font = UIFont(name: "Rubik" , size: 20)
+        label.font = UIFont(name: "Rubik-Bold" , size: 20)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -42,7 +42,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     lazy var codeTexfieldTitle: UILabel = {
         let label = UILabel()
         label.text = "Código da Sala"
-        label.font = UIFont(name: "Rubik" , size: 20)
+        label.font = UIFont(name: "Rubik-Bold" , size: 20)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

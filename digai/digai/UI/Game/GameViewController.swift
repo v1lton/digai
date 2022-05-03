@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
     private lazy var songTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = viewModel.getTextFieldPlaceHolder()
+        textField.placeholder = viewModel.getTextFieldPlaceHolder()
         textField.textAlignment = .center
         textField.layer.cornerRadius = 16
         textField.layer.borderWidth = 2
@@ -60,7 +60,6 @@ class GameViewController: UIViewController {
         setupView()
         buildViewHierarchy()
         constraintUI()
-        //playSong(atIndex: 0)
     }
     
     // MARK: - SETUP
@@ -92,16 +91,17 @@ class GameViewController: UIViewController {
     // MARK: PRIVATE FUNCTIONS
     
     private func bindSongTitlesToTextField(forIndex index: Int) {
-        if let title = viewModel.getSongTitle(at: index) {
+        if let title = viewModel.getSongTitleGuess(at: index) {
             songTextField.text = title
         } else {
-            songTextField.text = viewModel.getTextFieldPlaceHolder()
+            songTextField.text = nil
+            songTextField.placeholder = viewModel.getTextFieldPlaceHolder()
         }
     }
     
     private func playSong(atIndex index: Int) {
-        //guard let audioTrack = viewModel.getAudioTrack(atIndex: index) else { return }
-        //SpotifyPlayer.shared.play(audioTrack)
+        guard let audioTrack = viewModel.getAudioTrack(at: index) else { return }
+        Player.shared.play(audioTrack)
     }
     
     // MARK: - ACTIONS
@@ -169,7 +169,7 @@ extension GameViewController: iCarouselDataSource {
 
 extension GameViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        viewModel.updateSongTitle(at: viewModel.getIndex(), with: textField.text)
+        viewModel.updateSongGuess(at: viewModel.getIndex(), with: textField.text)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

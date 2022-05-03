@@ -17,9 +17,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = JoinRoomViewController()
         window?.makeKeyAndVisible()
     }
-    
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        //SpotifyManager.shared.refreshAccessToken { _ in }
-    }
 }
 
