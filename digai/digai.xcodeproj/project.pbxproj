@@ -32,6 +32,7 @@
 		89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */; };
 		89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */; };
 		89DACAA32820B51300D5F23E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA22820B51300D5F23E /* Track.swift */; };
+		AD95DE422820B72100EF10AE /* GameSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95DE412820B72000EF10AE /* GameSocketManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
 		89DACAA22820B51300D5F23E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
+		AD95DE412820B72000EF10AE /* GameSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSocketManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				178209FF27FA17E900B49CA2 /* DigaiAPI.swift */,
 				89CB3116281F333D0068909C /* Requests */,
 				89CB3111281F32680068909C /* Responses */,
+				AD95DE402820B70000EF10AE /* Socket */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -211,6 +214,13 @@
 				89DACAA22820B51300D5F23E /* Track.swift */,
 			);
 			path = Models;
+		};
+		AD95DE402820B70000EF10AE /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				AD95DE412820B72000EF10AE /* GameSocketManager.swift */,
+			);
+			path = Socket;
 			sourceTree = "<group>";
 		};
 		CD2017C96E6275BAA105F80A /* Frameworks */ = {
@@ -348,6 +358,7 @@
 				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */,
+				AD95DE422820B72100EF10AE /* GameSocketManager.swift in Sources */,
 				89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */,
 				8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */,
 				89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */,
