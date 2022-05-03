@@ -34,6 +34,9 @@
 		89DACAA32820B51300D5F23E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA22820B51300D5F23E /* Track.swift */; };
 		D74CFA3D2820AF7100E3818B /* JoinRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */; };
 		D74CFA402820C6D900E3818B /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74CFA3F2820C6D900E3818B /* Rubik-Bold.ttf */; };
+		D74CFA422820CC3B00E3818B /* JoinRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */; };
+		D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */; };
+		D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +73,9 @@
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
 		D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewController.swift; sourceTree = "<group>"; };
 		D74CFA3F2820C6D900E3818B /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewModel.swift; sourceTree = "<group>"; };
+		D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewModel.swift; sourceTree = "<group>"; };
+		D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,7 @@
 		89CB30F7281F062A0068909C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D74CFA432820D0BC00E3818B /* WaitingRoom */,
 				D74CFA3B2820746000E3818B /* JoinRoom */,
 				D74CFA3A2820744500E3818B /* CreateRoom */,
 				8942614027F64E8E00341F8B /* Result */,
@@ -239,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */,
+				D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */,
 			);
 			path = JoinRoom;
 			sourceTree = "<group>";
@@ -249,6 +257,15 @@
 				D74CFA3F2820C6D900E3818B /* Rubik-Bold.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		D74CFA432820D0BC00E3818B /* WaitingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */,
+				D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */,
+			);
+			path = WaitingRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,11 +390,14 @@
 				8942614627F64EC900341F8B /* ResultViewModel.swift in Sources */,
 				17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */,
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
+				D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
 				89DACA912820265600D5F23E /* JoinRoomResponse.swift in Sources */,
 				89DACA972820272C00D5F23E /* ExitRoomResponse.swift in Sources */,
 				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
+				D74CFA422820CC3B00E3818B /* JoinRoomViewModel.swift in Sources */,
+				D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */,
 				89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */,

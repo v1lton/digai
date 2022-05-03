@@ -67,7 +67,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         button.titleLabel?.font = UIFont(name: "Rubik-Bold", size: 14)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(didTapStopButton(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapCreateRoomButton(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -114,9 +114,8 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         createRoomButton.widthAnchor.constraint(equalToConstant: 106).isActive = true
     }
     
-    @objc private func didTapStopButton(_ sender: UIButton) {
-        print("foi")
-        
+    @objc private func didTapCreateRoomButton(_ sender: UIButton) {
+        navigationController?.pushViewController(WaitingRoomViewController(), animated: false)
     }
 
 }
