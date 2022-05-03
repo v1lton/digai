@@ -33,7 +33,10 @@ class GameViewModel {
         return userGuesses
     }
     
-    public func getSongTitle(at index: Int) -> String? {
+    public func getSongTitleGuess(at index: Int) -> String? {
+        if index >= 0 && index < userGuesses.count {
+            return userGuesses[index]
+        }
         return nil
     }
     
@@ -57,7 +60,7 @@ class GameViewModel {
         return nil
     }
     
-    public func getAudioTrack(at index: Int) -> CreateRoomResponse.Track? {
+    public func getAudioTrack(at index: Int) -> Track? {
         guard let digaiResponse = digaiResponse else { return nil }
         if index < digaiResponse.tracks.count {
             return digaiResponse.tracks[index]
@@ -65,7 +68,7 @@ class GameViewModel {
         return nil
     }
     
-    public func updateSongTitle(at index: Int, with songTitle: String?) {
+    public func updateSongGuess(at index: Int, with songTitle: String?) {
         self.userGuesses[index] = songTitle
     }
     
