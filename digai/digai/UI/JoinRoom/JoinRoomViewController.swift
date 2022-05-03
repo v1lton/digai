@@ -62,8 +62,11 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var createRoomButton: UIButton = {
         let button = UIButton()
+        button.setTitle("Criar Sala", for: .normal)
+        button.backgroundColor = .black
+        button.titleLabel?.font = UIFont(name: "Rubik-Bold", size: 14)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "buttonImage"), for: .normal)
+        button.layer.cornerRadius = 12
         button.addTarget(self, action: #selector(didTapStopButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -94,6 +97,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         nameTextField.leadingAnchor.constraint(equalTo: viewTitle.leadingAnchor).isActive = true
         nameTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         nameTextField.widthAnchor.constraint(equalToConstant: 327).isActive = true
+        nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         codeTexfieldTitle.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 54).isActive = true
         codeTexfieldTitle.leadingAnchor.constraint(equalTo: viewTitle.leadingAnchor).isActive = true
@@ -102,12 +106,16 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         codeTextField.leadingAnchor.constraint(equalTo: viewTitle.leadingAnchor).isActive = true
         codeTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         codeTextField.widthAnchor.constraint(equalToConstant: 327).isActive = true
+        codeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         createRoomButton.topAnchor.constraint(equalTo: codeTextField.bottomAnchor, constant: 29).isActive = true
         createRoomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        createRoomButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        createRoomButton.widthAnchor.constraint(equalToConstant: 106).isActive = true
     }
     
     @objc private func didTapStopButton(_ sender: UIButton) {
+        print("foi")
         
     }
 
