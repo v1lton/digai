@@ -7,22 +7,14 @@
 
 import AVFoundation
 
-final class SpotifyPlayer {
+final class Player {
     
-    static let shared = SpotifyPlayer()
+    static let shared = Player()
     
     private let api = DigaiAPI()
     private var player: AVPlayer?
     
     private init() {}
-    
-    func play(_ track: AudioTrack) {
-        guard let urlString = track.previewUrl,
-              let url = URL(string: urlString) else { return }
-        
-        player = AVPlayer(url: url)
-        player?.play()
-    }
     
     func play (_ track: Track) {
         guard let url = URL(string: track.preview) else { return }

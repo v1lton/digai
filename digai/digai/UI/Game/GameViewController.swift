@@ -101,7 +101,7 @@ class GameViewController: UIViewController {
     
     private func playSong(atIndex index: Int) {
         guard let audioTrack = viewModel.getAudioTrack(at: index) else { return }
-        SpotifyPlayer.shared.play(audioTrack)
+        Player.shared.play(audioTrack)
     }
     
     // MARK: - ACTIONS

@@ -8,12 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */; };
-		17820A0227FA17E900B49CA2 /* SpotifyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* SpotifyPlayer.swift */; };
+		17820A0227FA17E900B49CA2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* Player.swift */; };
 		17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* DigaiAPI.swift */; };
-		17820A0627FA17E900B49CA2 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0027FA17E900B49CA2 /* AudioTrack.swift */; };
-		17820A0B27FA19EB00B49CA2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0A27FA19EB00B49CA2 /* Album.swift */; };
-		17820A0D27FA19F800B49CA2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0C27FA19F800B49CA2 /* Image.swift */; };
-		17820A0F27FA1A0A00B49CA2 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17820A0E27FA1A0A00B49CA2 /* AuthResponse.swift */; };
 		2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD436DDCA126139424C41C /* Pods_digai.framework */; };
 		8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612B27F64CBB00341F8B /* AppDelegate.swift */; };
 		8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612D27F64CBB00341F8B /* SceneDelegate.swift */; };
@@ -24,7 +20,6 @@
 		8942614627F64EC900341F8B /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614527F64EC900341F8B /* ResultViewModel.swift */; };
 		8942614827F64ED600341F8B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614727F64ED600341F8B /* ResultViewController.swift */; };
 		8942614C27FC7E8200341F8B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8942614B27FC7E8200341F8B /* iCarousel.m */; };
-		89BB91BF27FDCE6E005D0371 /* teste.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 89BB91BE27FDCE6E005D0371 /* teste.m4a */; };
 		89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB3112281F32920068909C /* CreateRoomRequest.swift */; };
 		89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB3117281F33720068909C /* CreateRoomResponse.swift */; };
 		89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA8E282025F200D5F23E /* JoinRoomRequest.swift */; };
@@ -41,12 +36,8 @@
 
 /* Begin PBXFileReference section */
 		178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
-		178209FC27FA17E900B49CA2 /* SpotifyPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyPlayer.swift; sourceTree = "<group>"; };
+		178209FC27FA17E900B49CA2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		178209FF27FA17E900B49CA2 /* DigaiAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigaiAPI.swift; sourceTree = "<group>"; };
-		17820A0027FA17E900B49CA2 /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
-		17820A0A27FA19EB00B49CA2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
-		17820A0C27FA19F800B49CA2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		17820A0E27FA1A0A00B49CA2 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		3B97B41F53F0FEBA157211ED /* Pods-digai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.debug.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.debug.xcconfig"; sourceTree = "<group>"; };
 		7FFD436DDCA126139424C41C /* Pods_digai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8942612827F64CBB00341F8B /* digai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +53,6 @@
 		8942614927FC7E7400341F8B /* iCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "digai-Bridging-Header.h"; sourceTree = "<group>"; };
 		8942614B27FC7E8200341F8B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		89BB91BE27FDCE6E005D0371 /* teste.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = teste.m4a; sourceTree = "<group>"; };
 		89CB3112281F32920068909C /* CreateRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomRequest.swift; sourceTree = "<group>"; };
 		89CB3117281F33720068909C /* CreateRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomResponse.swift; sourceTree = "<group>"; };
 		89DACA8E282025F200D5F23E /* JoinRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomRequest.swift; sourceTree = "<group>"; };
@@ -90,24 +80,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		178209F627FA17D700B49CA2 /* Spotify */ = {
+		178209F627FA17D700B49CA2 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				17820A0927FA19DD00B49CA2 /* Models */,
-				178209FC27FA17E900B49CA2 /* SpotifyPlayer.swift */,
+				178209FC27FA17E900B49CA2 /* Player.swift */,
 			);
-			path = Spotify;
-			sourceTree = "<group>";
-		};
-		17820A0927FA19DD00B49CA2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				17820A0A27FA19EB00B49CA2 /* Album.swift */,
-				17820A0027FA17E900B49CA2 /* AudioTrack.swift */,
-				17820A0E27FA1A0A00B49CA2 /* AuthResponse.swift */,
-				17820A0C27FA19F800B49CA2 /* Image.swift */,
-			);
-			path = Models;
+			path = Player;
 			sourceTree = "<group>";
 		};
 		17820A1027FA1A1E00B49CA2 /* Extensions */ = {
@@ -150,9 +128,8 @@
 			children = (
 				89CB30F7281F062A0068909C /* UI */,
 				89CB30F6281F061B0068909C /* Networking */,
-				89BB91BD27FDCE32005D0371 /* Sounds */,
 				17820A1027FA1A1E00B49CA2 /* Extensions */,
-				178209F627FA17D700B49CA2 /* Spotify */,
+				178209F627FA17D700B49CA2 /* Player */,
 				8942612B27F64CBB00341F8B /* AppDelegate.swift */,
 				8942612D27F64CBB00341F8B /* SceneDelegate.swift */,
 				8942613427F64CBF00341F8B /* Assets.xcassets */,
@@ -181,14 +158,6 @@
 				8942614727F64ED600341F8B /* ResultViewController.swift */,
 			);
 			path = Result;
-			sourceTree = "<group>";
-		};
-		89BB91BD27FDCE32005D0371 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				89BB91BE27FDCE6E005D0371 /* teste.m4a */,
-			);
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 		89CB30F6281F061B0068909C /* Networking */ = {
@@ -315,7 +284,6 @@
 			files = (
 				8942613827F64CBF00341F8B /* LaunchScreen.storyboard in Resources */,
 				8942613527F64CBF00341F8B /* Assets.xcassets in Resources */,
-				89BB91BF27FDCE6E005D0371 /* teste.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,19 +340,15 @@
 				8942614227F64EAC00341F8B /* GameViewController.swift in Sources */,
 				8942614627F64EC900341F8B /* ResultViewModel.swift in Sources */,
 				17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */,
-				17820A0F27FA1A0A00B49CA2 /* AuthResponse.swift in Sources */,
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
-				17820A0227FA17E900B49CA2 /* SpotifyPlayer.swift in Sources */,
+				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
 				89DACA912820265600D5F23E /* JoinRoomResponse.swift in Sources */,
-				17820A0B27FA19EB00B49CA2 /* Album.swift in Sources */,
 				89DACA972820272C00D5F23E /* ExitRoomResponse.swift in Sources */,
 				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */,
 				89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */,
-				17820A0D27FA19F800B49CA2 /* Image.swift in Sources */,
-				17820A0627FA17E900B49CA2 /* AudioTrack.swift in Sources */,
 				8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */,
 				89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */,
 				8942614C27FC7E8200341F8B /* iCarousel.m in Sources */,
