@@ -36,9 +36,9 @@ class GameSocketManager {
             self?.delegate?.didConnect()
         }
         
-        socket.on("stop-requested") { [weak self] _, _ in
+        /*socket.on("stop-requested") { [weak self] _, _ in
             self?.delegate?.didReceive(message: "stop requested")
-        }
+        }*/
     }
     
     func joinRoom(player: String, roomName: String){

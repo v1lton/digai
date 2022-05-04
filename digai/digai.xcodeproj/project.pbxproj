@@ -37,9 +37,12 @@
 		D74CFA422820CC3B00E3818B /* JoinRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */; };
 		D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */; };
 		D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */; };
-		D7CA22C62822C292002C8A8F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22C52822C292002C8A8F /* Track.swift */; };
 		D7CA22CA2822D0E5002C8A8F /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22C92822D0E5002C8A8F /* CreateRoomViewController.swift */; };
 		D7CA22CC2822D182002C8A8F /* CreateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22CB2822D182002C8A8F /* CreateRoomViewModel.swift */; };
+		89DACAA32820B51300D5F23E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA22820B51300D5F23E /* Track.swift */; };
+		89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */; };
+		89DACAA72821E84900D5F23E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA62821E84900D5F23E /* Result.swift */; };
+		89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3C8552823024400544ED8 /* ResultTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,10 @@
 		89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRoomResponse.swift; sourceTree = "<group>"; };
 		89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomRequest.swift; sourceTree = "<group>"; };
 		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
+		89DACAA22820B51300D5F23E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModelProtocol.swift; sourceTree = "<group>"; };
+		89DACAA62821E84900D5F23E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		89E3C8552823024400544ED8 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
 		AD95DE412820B72000EF10AE /* GameSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSocketManager.swift; sourceTree = "<group>"; };
 		D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +86,6 @@
 		D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewModel.swift; sourceTree = "<group>"; };
 		D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewModel.swift; sourceTree = "<group>"; };
 		D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
-		D7CA22C52822C292002C8A8F /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D7CA22C92822D0E5002C8A8F /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
 		D7CA22CB2822D182002C8A8F /* CreateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,8 +177,10 @@
 		8942614027F64E8E00341F8B /* Result */ = {
 			isa = PBXGroup;
 			children = (
+				89E3C8542823022500544ED8 /* Cell */,
 				8942614527F64EC900341F8B /* ResultViewModel.swift */,
 				8942614727F64ED600341F8B /* ResultViewController.swift */,
+				89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -230,8 +238,18 @@
 			isa = PBXGroup;
 			children = (
 				AD95DE412820B72000EF10AE /* GameSocketManager.swift */,
+				89DACAA22820B51300D5F23E /* Track.swift */,
+				89DACAA62821E84900D5F23E /* Result.swift */,
 			);
 			path = Socket;
+			sourceTree = "<group>";
+		};
+		89E3C8542823022500544ED8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				89E3C8552823024400544ED8 /* ResultTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CD2017C96E6275BAA105F80A /* Frameworks */ = {
@@ -275,14 +293,6 @@
 				D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */,
 			);
 			path = WaitingRoom;
-			sourceTree = "<group>";
-		};
-		D7CA22C42822C283002C8A8F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				D7CA22C52822C292002C8A8F /* Track.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,9 +420,11 @@
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
 				D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
+				89DACAA72821E84900D5F23E /* Result.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
 				89DACA912820265600D5F23E /* JoinRoomResponse.swift in Sources */,
 				89DACA972820272C00D5F23E /* ExitRoomResponse.swift in Sources */,
+				89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */,
 				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
 				D74CFA422820CC3B00E3818B /* JoinRoomViewModel.swift in Sources */,
 				D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */,
@@ -429,6 +441,7 @@
 				8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */,
 				89DACA95282026FB00D5F23E /* ExitRoomRequest.swift in Sources */,
 				89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */,
+				89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */,
 				89DACA992820276E00D5F23E /* UpdateRoomRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
