@@ -15,6 +15,10 @@ protocol GameSocketManagerDelegate: AnyObject {
 
 class GameSocketManager {
     
+    enum SocketError: Error {
+        case `default`
+    }
+    
     private let manager = SocketManager(socketURL: URL(string: "http://localhost:3000/")!,
                                         config: [.log(false), .compress])
     
@@ -42,10 +46,28 @@ class GameSocketManager {
         }*/
     }
     
-    func joinRoom(player: String, roomName: String){
-        socket.emitWithAck("join-room", roomName , player , 1).timingOut(after: 2){ info in
-            print(info)
-            
+    func createRoom(player: String, completion: @escaping (String?) -> Void) {
+        let roomName = String(UUID().uuidString.prefix(4)).lowercased()
+        
+        socket.emitWithAck("create-room", roomName, player, 5).timingOut(after: 2) { info in
+            if let room = info.first as? String, room == roomName {
+                completion(room)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+
+    
+    func joinRoom(player: String, roomName: String, completion: @escaping (String?) -> Void) {
+        let roomName = roomName.lowercased()
+        
+        socket.emitWithAck("join-room", roomName, player).timingOut(after: 2) { info in
+            if let room = info.first as? String, room == roomName {
+                completion(room)
+            } else {
+                completion(nil)
+            }
         }
     }
     

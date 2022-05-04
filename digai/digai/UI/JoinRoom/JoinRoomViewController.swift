@@ -9,11 +9,8 @@ import UIKit
 
 class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     
-    
-    
     var viewModel: JoinRoomViewModel = JoinRoomViewModel()
-    
-    
+
     lazy var viewTitle: UILabel = {
         let label = UILabel()
         label.text = "Jogaço"
@@ -76,7 +73,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    /*private lazy var createRoomButton: UIButton = {
+    private lazy var createRoomButton: UIButton = {
         let button = UIButton()
         button.setTitle("Criar Sala", for: .normal)
         button.backgroundColor = .black
@@ -85,7 +82,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 12
         button.addTarget(self, action: #selector(didTapCreateRoomButton(_:)), for: .touchUpInside)
         return button
-    }()*/
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,10 +95,9 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(codeTextField)
         view.addSubview(codeTextField)
         view.addSubview(joinRoomButton)
-        //view.addSubview(createRoomButton)
+        view.addSubview(createRoomButton)
         
-        setupConstraints()
-        
+        setupConstraints()        
     }
     
     func setupConstraints(){
@@ -132,44 +128,40 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         joinRoomButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
         joinRoomButton.widthAnchor.constraint(equalToConstant: 106).isActive = true
         
-        /*createRoomButton.topAnchor.constraint(equalTo: joinRoomButton.bottomAnchor, constant: 10).isActive = true
+        createRoomButton.topAnchor.constraint(equalTo: joinRoomButton.bottomAnchor, constant: 10).isActive = true
         createRoomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         createRoomButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        createRoomButton.widthAnchor.constraint(equalToConstant: 106).isActive = true*/
+        createRoomButton.widthAnchor.constraint(equalToConstant: 106).isActive = true
     }
-    
-    /*@objc private func didTapCreateRoomButton(_ sender: UIButton) {
-        
-        
-        viewModel.createRoom()
-        
-        print(viewModel.getRoom())
-        
-        
-    }*/
     
     @objc private func didTapJoinRoomButton(_ sender: UIButton) {
-        
-        /*let text = codeTextField.text ?? ""
-        print(text)
-        viewModel.joinRoom(id: text , name: "Morgs")*/
-        let roomName = codeTextField.text ?? ""
-        let player = nameTextField.text ?? ""
-        self.navigationController?.pushViewController(CreateRoomViewController(player: player, roomName: roomName), animated: false)
-        
-        
+        viewModel.joinRoom(id: codeTextField.text, playerName: nameTextField.text)
     }
 
+    
+    @objc private func didTapCreateRoomButton(_ sender: UIButton) {
+        viewModel.createRoom(playerName: nameTextField.text)
+    }
 }
 
 extension JoinRoomViewController : JoinRoomDelegate {
-    func didCreateRoom() {
+    func didCreateRoom(_ roomName: String) {
         DispatchQueue.main.async {
-            let roomName = self.codeTextField.text ?? ""
             self.navigationController?.pushViewController(WaitingRoomViewController(roomName: roomName), animated: false)
         }
-        
     }
     
+    func didJoinRoom(_ roomName: String) {
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(WaitingRoomViewController(roomName: roomName), animated: false)
+        }
+    }
     
+    func showError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }

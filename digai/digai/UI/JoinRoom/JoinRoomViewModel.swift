@@ -11,40 +11,43 @@ import SDWebImage
 class JoinRoomViewModel {
     
     var delegate: JoinRoomDelegate?
+    private var socketManager: GameSocketManager?
     private var room: CreateRoomResponse?
     private let api = DigaiAPI()
     
     init(){
-        
+        self.socketManager = GameSocketManager(delegate: self)
     }
     
-    public func createRoom(){
-        let createRoomRequest = CreateRoomRequest(steps: 5,
-                                                  owner: .init(name: "kk",
-                                                               crowns: 0),
-                                                  genres: ["funk"])
-        api.createRoom(for: createRoomRequest) { [weak self] createRoom in
-            guard let self = self else { return }
-            self.room = createRoom
-            print(self.room)
-            self.delegate?.didCreateRoom()
-            
+    public func createRoom(playerName: String?){
+        guard let playerName = validate(input: playerName, errorTitle: "nome inválido",
+                                        errorMessage: "o campo de nome é obrigatório") else { return }
+        
+        socketManager?.createRoom(player: playerName) { [weak self] roomName in
+            guard let roomName = roomName else {
+                self?.delegate?.showError(title: "erro ao criar sala",
+                                         message: "não conseguimos criar a sala, tente novamente")
+                return
+            }
+            self?.delegate?.didCreateRoom(roomName)
         }
         
     }
     
-    public func joinRoom(id: String, name: String){
-        /*
-        let joinRoomRequest =  JoinRoomRequest(roomId: id, user: JoinRoomRequest.User(name: name))
-        print(joinRoomRequest)
-        api.joinRoom(for: joinRoomRequest) { [weak self] joinRoom in
-            guard let self = self else { return }
-            
-            self.room = joinRoom
-            print(self.room?.players)
-            self.delegate?.didCreateRoom()
-            
-        }*/
+    public func joinRoom(id: String?, playerName: String?){
+        guard let playerName = validate(input: playerName, errorTitle: "nome inválido",
+                                        errorMessage: "o campo de nome é obrigatório") else { return }
+        guard let roomCode = validate(input: id, errorTitle: "código da sala inválido",
+                                      errorMessage: "o campo de código da sala é obrigatório") else { return }
+        
+        socketManager?.joinRoom(player: playerName, roomName: roomCode) { [weak self] roomName in
+            guard let roomName = roomName else {
+                self?.delegate?.showError(title: "erro ao entrar na sala",
+                                          message: "código da sala incorreto, tente novamente")
+                return
+            }
+            self?.delegate?.didJoinRoom(roomName)
+        }
     }
     
     public func getRoom() -> CreateRoomResponse {
@@ -52,9 +55,26 @@ class JoinRoomViewModel {
         return self.room ?? CreateRoomResponse(id: "", players: [], tracks: [], started: false, steps: 0, genres: [])
     }
     
-    
+    private func validate(input: String?, errorTitle: String, errorMessage: String) -> String? {
+        guard let input = input?.trimmingCharacters(in: .whitespacesAndNewlines), !input.isEmpty else {
+            delegate?.showError(title: errorTitle, message: errorMessage)
+            return nil
+        }
+        
+        return input
+    }
 }
 
 protocol JoinRoomDelegate {
-    func didCreateRoom()
+    func didCreateRoom(_ roomName: String)
+    func didJoinRoom(_ roomName: String)
+    func showError(title: String, message: String)
+}
+
+extension JoinRoomViewModel: GameSocketManagerDelegate {
+    func didConnect() {
+        debugPrint("did connect with socket")
+    }
+    
+    func didReceive(message: String) {}
 }
