@@ -165,7 +165,8 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
 extension JoinRoomViewController : JoinRoomDelegate {
     func didCreateRoom() {
         DispatchQueue.main.async {
-            self.navigationController?.pushViewController(WaitingRoomViewController(room: self.viewModel.getRoom()), animated: false)
+            let roomName = self.codeTextField.text ?? ""
+            self.navigationController?.pushViewController(WaitingRoomViewController(roomName: roomName), animated: false)
         }
         
     }

@@ -47,8 +47,6 @@ class GameSocketManager {
             print(info)
             
         }
-        
-    
     }
     
     func requestStop(player: String) {

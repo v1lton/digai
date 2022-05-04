@@ -10,10 +10,11 @@ import UIKit
 class WaitingRoomViewController: UIViewController {
     
     private var viewModel: WaitingRoomViewModel
+   
     
-    init(room: CreateRoomResponse){
+    init(roomName: String){
         
-        self.viewModel = WaitingRoomViewModel(room: room)
+        self.viewModel = WaitingRoomViewModel(roomName: roomName)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,7 +39,6 @@ class WaitingRoomViewController: UIViewController {
         view.addSubview(startButton)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black,
                                                                    .font: UIFont(name: "Rubik-Bold", size: 32)]
-        
         self.navigationItem.title = self.viewModel.getRoomId()
         setupConstraints()
                
