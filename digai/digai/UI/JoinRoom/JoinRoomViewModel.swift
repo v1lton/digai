@@ -15,7 +15,7 @@ class JoinRoomViewModel {
     private let api = DigaiAPI()
     
     init(){
-        //createRoom()
+        
     }
     
     public func createRoom(){
@@ -28,8 +28,23 @@ class JoinRoomViewModel {
             self.room = createRoom
             print(self.room)
             self.delegate?.didCreateRoom()
-   
+            
         }
+        
+    }
+    
+    public func joinRoom(id: String, name: String){
+        /*
+        let joinRoomRequest =  JoinRoomRequest(roomId: id, user: JoinRoomRequest.User(name: name))
+        print(joinRoomRequest)
+        api.joinRoom(for: joinRoomRequest) { [weak self] joinRoom in
+            guard let self = self else { return }
+            
+            self.room = joinRoom
+            print(self.room?.players)
+            self.delegate?.didCreateRoom()
+            
+        }*/
     }
     
     public func getRoom() -> CreateRoomResponse {
@@ -37,13 +52,6 @@ class JoinRoomViewModel {
         return self.room ?? CreateRoomResponse(id: "", players: [], tracks: [], started: false, steps: 0, genres: [])
     }
     
-    public func getTracks() -> [Track] {
-        return room?.tracks ?? []
-    }
-    
-    public func getRoomId() -> String {
-        return room?.id ?? ""
-    }
     
 }
 

@@ -62,6 +62,17 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
+    private lazy var joinRoomButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Entrar", for: .normal)
+        button.backgroundColor = .black
+        button.titleLabel?.font = UIFont(name: "Rubik-Bold", size: 14)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 12
+        button.addTarget(self, action: #selector(didTapJoinRoomButton(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var createRoomButton: UIButton = {
         let button = UIButton()
         button.setTitle("Criar Sala", for: .normal)
@@ -83,6 +94,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(codeTexfieldTitle)
         view.addSubview(codeTextField)
         view.addSubview(codeTextField)
+        view.addSubview(joinRoomButton)
         view.addSubview(createRoomButton)
         
         setupConstraints()
@@ -111,7 +123,13 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         codeTextField.widthAnchor.constraint(equalToConstant: 327).isActive = true
         codeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        createRoomButton.topAnchor.constraint(equalTo: codeTextField.bottomAnchor, constant: 29).isActive = true
+        
+        joinRoomButton.topAnchor.constraint(equalTo: codeTextField.bottomAnchor, constant: 29).isActive = true
+        joinRoomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        joinRoomButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        joinRoomButton.widthAnchor.constraint(equalToConstant: 106).isActive = true
+        
+        createRoomButton.topAnchor.constraint(equalTo: joinRoomButton.bottomAnchor, constant: 10).isActive = true
         createRoomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         createRoomButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
         createRoomButton.widthAnchor.constraint(equalToConstant: 106).isActive = true
@@ -125,7 +143,12 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         print(viewModel.getRoom())
         
         
-        /*navigationController?.pushViewController(WaitingRoomViewController(room: viewModel.getRoom()), animated: false)*/
+    }
+    
+    @objc private func didTapJoinRoomButton(_ sender: UIButton) {
+        let text = codeTextField.text ?? ""
+        print(text)
+        viewModel.joinRoom(id: text , name: "Morgs")
         
     }
 

@@ -39,7 +39,7 @@ class WaitingRoomViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black,
                                                                    .font: UIFont(name: "Rubik-Bold", size: 32)]
         
-        self.navigationItem.title = "Sala 74acd"
+        self.navigationItem.title = self.viewModel.getRoomId()
         setupConstraints()
                
     }

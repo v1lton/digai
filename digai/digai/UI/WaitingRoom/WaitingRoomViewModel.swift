@@ -18,4 +18,9 @@ class WaitingRoomViewModel {
         
         return self.digaiResponse ?? CreateRoomResponse(id: "", players: [], tracks: [], started: false, steps: 0, genres: [])
     }
+    
+    public func getRoomId() -> String {
+        
+        return self.digaiResponse.id
+    }
 }
