@@ -9,6 +9,18 @@ import UIKit
 
 class WaitingRoomViewController: UIViewController {
     
+    private var viewModel: WaitingRoomViewModel
+    
+    init(room: CreateRoomResponse){
+        
+        self.viewModel = WaitingRoomViewModel(room: room)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var startButton: UIButton = {
         let button = UIButton()
         button.setTitle("Criar Sala", for: .normal)
@@ -40,7 +52,7 @@ class WaitingRoomViewController: UIViewController {
     }
     
     @objc private func didTapStartButton(_ sender: UIButton) {
-        navigationController?.pushViewController(GameViewController(), animated: false)
+        navigationController?.pushViewController(GameViewController(room: viewModel.getRoom()), animated: false)
     }
 
 }

@@ -8,5 +8,14 @@
 import SDWebImage
 
 class WaitingRoomViewModel {
-
+    private var digaiResponse: CreateRoomResponse
+    
+    init(room: CreateRoomResponse){
+        self.digaiResponse = room
+    }
+    
+    public func getRoom() -> CreateRoomResponse {
+        
+        return self.digaiResponse ?? CreateRoomResponse(id: "", players: [], tracks: [], started: false, steps: 0, genres: [])
+    }
 }

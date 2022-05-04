@@ -19,11 +19,12 @@ class GameViewModel {
     private var index: Int = 0
     
     private let api = DigaiAPI()
-    private var digaiResponse: CreateRoomResponse?
+    private var digaiResponse: CreateRoomResponse
     
     // MARK: - INITIALIZER
     
-    init() {
+    init(room: CreateRoomResponse) {
+        self.digaiResponse = room
         setTracks()
     }
     
@@ -41,7 +42,7 @@ class GameViewModel {
     }
     
     public func getNumberOfItens() -> Int {
-        return digaiResponse?.tracks.count ?? 0
+        return digaiResponse.tracks.count
     }
     
     public func getIndex() -> Int {
@@ -53,7 +54,7 @@ class GameViewModel {
     }
     
     public func getAlbumURL(at index: Int) -> String? {
-        guard let digaiResponse = digaiResponse else { return nil }
+        //guard let digaiResponse = digaiResponse else { return nil }
         if index < digaiResponse.tracks.count {
             return digaiResponse.tracks[index].albumArt
         }
@@ -61,9 +62,9 @@ class GameViewModel {
     }
     
     public func getAudioTrack(at index: Int) -> Track? {
-        guard let digaiResponse = digaiResponse else { return nil }
+        //guard let digaiResponse = digaiResponse else { return nil }
         if index < digaiResponse.tracks.count {
-            return digaiResponse.tracks[index]
+            return digaiResponse.tracks[index + 1]
         }
         return nil
     }
@@ -78,19 +79,13 @@ class GameViewModel {
     
     // MARK: - PRIVATE METHODS
     
-    private func setTracks() {
-        let createRoomRequest = CreateRoomRequest(steps: 5,
-                                                  owner: .init(name: "kk",
-                                                               crowns: 0),
-                                                  genres: ["funk"])
-        api.createRoom(for: createRoomRequest) { [weak self] createRoom in
-            guard let self = self else { return }
-            self.digaiResponse = createRoom
-            self.setupUserGuesses(with: createRoom?.tracks.count ?? 0)
-            DispatchQueue.main.async {
-                self.delegate?.didSetTracks()
-            }
+    public func setTracks() {
+       
+        self.setupUserGuesses(with: digaiResponse.tracks.count )
+        DispatchQueue.main.async {
+            self.delegate?.didSetTracks()
         }
+        
     }
     
     private func setupUserGuesses(with count: Int) {

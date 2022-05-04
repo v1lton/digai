@@ -17,7 +17,17 @@ class GameViewController: UIViewController {
     
     // MARK: - PRIVATE PROPERTIES
     
-    private let viewModel: GameViewModel = GameViewModel()
+    private var viewModel: GameViewModel
+    
+    init(room: CreateRoomResponse){
+        
+        self.viewModel = GameViewModel(room: room)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UI
     

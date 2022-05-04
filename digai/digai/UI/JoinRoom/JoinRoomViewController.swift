@@ -9,6 +9,8 @@ import UIKit
 
 class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     
+    var viewModel: JoinRoomViewModel = JoinRoomViewModel()
+    
     lazy var viewTitle: UILabel = {
         let label = UILabel()
         label.text = "Jogaço"
@@ -115,7 +117,13 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func didTapCreateRoomButton(_ sender: UIButton) {
-        navigationController?.pushViewController(WaitingRoomViewController(), animated: false)
+        
+        viewModel.createRoom()
+        
+        print(viewModel.getRoom())
+        
+        /*navigationController?.pushViewController(WaitingRoomViewController(room: viewModel.getRoom()), animated: false)*/
+        
     }
 
 }
