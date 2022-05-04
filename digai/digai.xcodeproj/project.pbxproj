@@ -32,6 +32,9 @@
 		89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */; };
 		89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */; };
 		89DACAA32820B51300D5F23E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA22820B51300D5F23E /* Track.swift */; };
+		89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */; };
+		89DACAA72821E84900D5F23E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA62821E84900D5F23E /* Result.swift */; };
+		89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3C8552823024400544ED8 /* ResultTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,9 @@
 		89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomRequest.swift; sourceTree = "<group>"; };
 		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
 		89DACAA22820B51300D5F23E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModelProtocol.swift; sourceTree = "<group>"; };
+		89DACAA62821E84900D5F23E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		89E3C8552823024400544ED8 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,8 +160,10 @@
 		8942614027F64E8E00341F8B /* Result */ = {
 			isa = PBXGroup;
 			children = (
+				89E3C8542823022500544ED8 /* Cell */,
 				8942614527F64EC900341F8B /* ResultViewModel.swift */,
 				8942614727F64ED600341F8B /* ResultViewController.swift */,
+				89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -209,8 +217,17 @@
 			isa = PBXGroup;
 			children = (
 				89DACAA22820B51300D5F23E /* Track.swift */,
+				89DACAA62821E84900D5F23E /* Result.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		89E3C8542823022500544ED8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				89E3C8552823024400544ED8 /* ResultTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CD2017C96E6275BAA105F80A /* Frameworks */ = {
@@ -342,9 +359,11 @@
 				17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */,
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
+				89DACAA72821E84900D5F23E /* Result.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
 				89DACA912820265600D5F23E /* JoinRoomResponse.swift in Sources */,
 				89DACA972820272C00D5F23E /* ExitRoomResponse.swift in Sources */,
+				89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */,
 				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */,
@@ -357,6 +376,7 @@
 				89DACA95282026FB00D5F23E /* ExitRoomRequest.swift in Sources */,
 				89DACAA32820B51300D5F23E /* Track.swift in Sources */,
 				89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */,
+				89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */,
 				89DACA992820276E00D5F23E /* UpdateRoomRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
