@@ -9,7 +9,8 @@ import UIKit
 
 class CreateRoomViewController: UIViewController {
     
-    private lazy var socketManager = GameSocketManager(delegate: self)
+    private var socketManager: GameSocketManager?
+    
     var viewModel: CreateRoomViewModel = CreateRoomViewModel()
     var player: String
     var roomName: String
@@ -20,6 +21,8 @@ class CreateRoomViewController: UIViewController {
         self.roomName = roomName
         
         super.init(nibName: nil, bundle: nil)
+        
+        self.socketManager = GameSocketManager(delegate: self)
     }
     
     required init?(coder: NSCoder) {
@@ -54,7 +57,7 @@ class CreateRoomViewController: UIViewController {
     }
     
     @objc private func didTapCreateButton(_ sender: UIButton) {
-        socketManager.joinRoom(player: self.player, roomName: self.roomName)
+        socketManager?.joinRoom(player: self.player, roomName: self.roomName)
         //self.navigationController?.pushViewController(WaitingRoomViewController(room: <#T##CreateRoomResponse#>), animated: false)
     }
 

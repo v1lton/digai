@@ -15,7 +15,8 @@ protocol GameSocketManagerDelegate: AnyObject {
 
 class GameSocketManager {
     
-    private let manager = SocketManager(socketURL: URL(string: "http://localhost:3000/")!, config: [.log(false), .compress])
+    private let manager = SocketManager(socketURL: URL(string: "http://localhost:3000/")!,
+                                        config: [.log(false), .compress])
     
     weak var delegate: GameSocketManagerDelegate?
     lazy var socket: SocketIOClient = manager.defaultSocket
