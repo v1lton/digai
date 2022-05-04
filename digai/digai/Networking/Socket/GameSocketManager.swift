@@ -43,13 +43,11 @@ class GameSocketManager {
     }
     
     func joinRoom(player: String, roomName: String){
-        let info: [String : Any] = [
-                    "roomValue": player,
-                    "userValue": roomName
-                ]
-        socket.emit("join-room", info) {
+        socket.emitWithAck("join-room", roomName , player , 1).timingOut(after: 2){ info in
+            print(info)
             
         }
+        
     
     }
     
