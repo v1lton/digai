@@ -10,6 +10,7 @@
 		178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */; };
 		17820A0227FA17E900B49CA2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* Player.swift */; };
 		17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* DigaiAPI.swift */; };
+		17B9BC15282322ED00EF7F68 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 17B9BC14282322ED00EF7F68 /* SocketIO */; };
 		2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD436DDCA126139424C41C /* Pods_digai.framework */; };
 		8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612B27F64CBB00341F8B /* AppDelegate.swift */; };
 		8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612D27F64CBB00341F8B /* SceneDelegate.swift */; };
@@ -96,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */,
+				17B9BC15282322ED00EF7F68 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +315,7 @@
 			);
 			name = digai;
 			packageProductDependencies = (
+				17B9BC14282322ED00EF7F68 /* SocketIO */,
 			);
 			productName = digai;
 			productReference = 8942612827F64CBB00341F8B /* digai.app */;
@@ -344,6 +347,7 @@
 			);
 			mainGroup = 8942611F27F64CBB00341F8B;
 			packageReferences = (
+				17B9BC13282322ED00EF7F68 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = 8942612927F64CBB00341F8B /* Products */;
 			projectDirPath = "";
@@ -662,6 +666,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17B9BC13282322ED00EF7F68 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17B9BC14282322ED00EF7F68 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17B9BC13282322ED00EF7F68 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8942612027F64CBB00341F8B /* Project object */;
 }
