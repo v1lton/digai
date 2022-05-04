@@ -23,7 +23,7 @@ class WaitingRoomViewController: UIViewController {
     
     private lazy var startButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Criar Sala", for: .normal)
+        button.setTitle("Começar partida", for: .normal)
         button.backgroundColor = .black
         button.titleLabel?.font = UIFont(name: "Rubik-Bold", size: 14)
         button.translatesAutoresizingMaskIntoConstraints = false
