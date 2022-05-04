@@ -64,7 +64,7 @@ class GameViewModel {
     public func getAudioTrack(at index: Int) -> Track? {
         //guard let digaiResponse = digaiResponse else { return nil }
         if index < digaiResponse.tracks.count {
-            return digaiResponse.tracks[index + 1]
+            return digaiResponse.tracks[index]
         }
         return nil
     }
