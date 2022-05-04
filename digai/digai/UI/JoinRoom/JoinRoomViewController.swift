@@ -75,6 +75,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         view.backgroundColor = .white
         view.addSubview(viewTitle)
         view.addSubview(nameTexfieldTitle)
@@ -118,12 +119,25 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     
     @objc private func didTapCreateRoomButton(_ sender: UIButton) {
         
+        
         viewModel.createRoom()
         
         print(viewModel.getRoom())
+        
         
         /*navigationController?.pushViewController(WaitingRoomViewController(room: viewModel.getRoom()), animated: false)*/
         
     }
 
+}
+
+extension JoinRoomViewController : JoinRoomDelegate {
+    func didCreateRoom() {
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(WaitingRoomViewController(room: self.viewModel.getRoom()), animated: false)
+        }
+        
+    }
+    
+    
 }

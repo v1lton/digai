@@ -10,6 +10,7 @@ import SDWebImage
 
 class JoinRoomViewModel {
     
+    var delegate: JoinRoomDelegate?
     private var room: CreateRoomResponse?
     private let api = DigaiAPI()
     
@@ -17,7 +18,7 @@ class JoinRoomViewModel {
         //createRoom()
     }
     
-    public func createRoom() {
+    public func createRoom(){
         let createRoomRequest = CreateRoomRequest(steps: 5,
                                                   owner: .init(name: "kk",
                                                                crowns: 0),
@@ -26,7 +27,8 @@ class JoinRoomViewModel {
             guard let self = self else { return }
             self.room = createRoom
             print(self.room)
-            
+            self.delegate?.didCreateRoom()
+   
         }
     }
     
@@ -43,4 +45,8 @@ class JoinRoomViewModel {
         return room?.id ?? ""
     }
     
+}
+
+protocol JoinRoomDelegate {
+    func didCreateRoom()
 }
