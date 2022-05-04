@@ -31,6 +31,9 @@
 		89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */; };
 		89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */; };
 		89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */; };
+		89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */; };
+		89DACAA72821E84900D5F23E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA62821E84900D5F23E /* Result.swift */; };
+		89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3C8552823024400544ED8 /* ResultTableViewCell.swift */; };
 		AD95DE422820B72100EF10AE /* GameSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95DE412820B72000EF10AE /* GameSocketManager.swift */; };
 		D74CFA3D2820AF7100E3818B /* JoinRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */; };
 		D74CFA402820C6D900E3818B /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74CFA3F2820C6D900E3818B /* Rubik-Bold.ttf */; };
@@ -39,10 +42,7 @@
 		D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */; };
 		D7CA22CA2822D0E5002C8A8F /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22C92822D0E5002C8A8F /* CreateRoomViewController.swift */; };
 		D7CA22CC2822D182002C8A8F /* CreateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22CB2822D182002C8A8F /* CreateRoomViewModel.swift */; };
-		89DACAA32820B51300D5F23E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA22820B51300D5F23E /* Track.swift */; };
-		89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */; };
-		89DACAA72821E84900D5F23E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA62821E84900D5F23E /* Result.swift */; };
-		89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3C8552823024400544ED8 /* ResultTableViewCell.swift */; };
+		D7CA22CE28231433002C8A8F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22CD28231433002C8A8F /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +75,6 @@
 		89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRoomResponse.swift; sourceTree = "<group>"; };
 		89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomRequest.swift; sourceTree = "<group>"; };
 		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
-		89DACAA22820B51300D5F23E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModelProtocol.swift; sourceTree = "<group>"; };
 		89DACAA62821E84900D5F23E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		89E3C8552823024400544ED8 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
 		D7CA22C92822D0E5002C8A8F /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
 		D7CA22CB2822D182002C8A8F /* CreateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewModel.swift; sourceTree = "<group>"; };
+		D7CA22CD28231433002C8A8F /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +188,6 @@
 		89CB30F6281F061B0068909C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D7CA22C42822C283002C8A8F /* Models */,
 				178209FF27FA17E900B49CA2 /* DigaiAPI.swift */,
 				89CB3116281F333D0068909C /* Requests */,
 				89CB3111281F32680068909C /* Responses */,
@@ -234,22 +233,22 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		AD95DE402820B70000EF10AE /* Socket */ = {
-			isa = PBXGroup;
-			children = (
-				AD95DE412820B72000EF10AE /* GameSocketManager.swift */,
-				89DACAA22820B51300D5F23E /* Track.swift */,
-				89DACAA62821E84900D5F23E /* Result.swift */,
-			);
-			path = Socket;
-			sourceTree = "<group>";
-		};
 		89E3C8542823022500544ED8 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				89E3C8552823024400544ED8 /* ResultTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AD95DE402820B70000EF10AE /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				AD95DE412820B72000EF10AE /* GameSocketManager.swift */,
+				89DACAA62821E84900D5F23E /* Result.swift */,
+				D7CA22CD28231433002C8A8F /* Track.swift */,
+			);
+			path = Socket;
 			sourceTree = "<group>";
 		};
 		CD2017C96E6275BAA105F80A /* Frameworks */ = {
@@ -428,7 +427,6 @@
 				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
 				D74CFA422820CC3B00E3818B /* JoinRoomViewModel.swift in Sources */,
 				D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */,
-				D7CA22C62822C292002C8A8F /* Track.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */,
 				D7CA22CA2822D0E5002C8A8F /* CreateRoomViewController.swift in Sources */,
@@ -439,6 +437,7 @@
 				8942614C27FC7E8200341F8B /* iCarousel.m in Sources */,
 				8942614427F64EB900341F8B /* GameViewModel.swift in Sources */,
 				8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */,
+				D7CA22CE28231433002C8A8F /* Track.swift in Sources */,
 				89DACA95282026FB00D5F23E /* ExitRoomRequest.swift in Sources */,
 				89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */,
 				89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */,
