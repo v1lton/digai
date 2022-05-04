@@ -312,6 +312,8 @@
 			dependencies = (
 			);
 			name = digai;
+			packageProductDependencies = (
+			);
 			productName = digai;
 			productReference = 8942612827F64CBB00341F8B /* digai.app */;
 			productType = "com.apple.product-type.application";
@@ -341,6 +343,8 @@
 				Base,
 			);
 			mainGroup = 8942611F27F64CBB00341F8B;
+			packageReferences = (
+			);
 			productRefGroup = 8942612927F64CBB00341F8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
