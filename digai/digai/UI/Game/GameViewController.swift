@@ -120,6 +120,7 @@ class GameViewController: UIViewController {
     
     @objc private func didTapStopButton(_ sender: UIButton) {
         print("STOP!")
+        Player.shared.pause()
         viewModel.socketManager.requestStop()
     }
     
