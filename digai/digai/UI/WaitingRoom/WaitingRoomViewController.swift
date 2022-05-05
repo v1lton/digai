@@ -57,6 +57,10 @@ class WaitingRoomViewController: UIViewController {
 }
 
 extension WaitingRoomViewController: WaitingRoomDelegate {
+    func didStopGame() {
+        navigationController?.pushViewController(ResultViewController(), animated: false)
+    }
+    
     func didStartGame(roomResponse: CreateRoomResponse) {
         navigationController?.pushViewController(GameViewController(room: roomResponse, socket: viewModel.socketManager!), animated: true)
     }

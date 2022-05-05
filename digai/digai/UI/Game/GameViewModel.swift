@@ -92,6 +92,7 @@ class GameViewModel {
     private func setupUserGuesses(with count: Int) {
         userGuesses = [String?](repeating: nil, count: count)
     }
+    
 }
 
 protocol GameViewModelDelegate {

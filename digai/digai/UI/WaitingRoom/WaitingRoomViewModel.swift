@@ -37,6 +37,7 @@ class WaitingRoomViewModel {
 
 protocol WaitingRoomDelegate {
     func didStartGame(roomResponse: CreateRoomResponse)
+    func didStopGame()
 }
 
 extension WaitingRoomViewModel: GameSocketManagerDelegate {    
@@ -45,6 +46,12 @@ extension WaitingRoomViewModel: GameSocketManagerDelegate {
             let roomResponse = CreateRoomResponse(id: roomName, tracks: tracks,
                                                   started: true, genres: [])
             delegate?.didStartGame(roomResponse: roomResponse)
+        }
+        
+        if message == "stop requested" {
+            print("stop")
+            self.delegate?.didStopGame()
+            
         }
     }
 }

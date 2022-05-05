@@ -131,6 +131,10 @@ class GameViewController: UIViewController {
 // MARK: - GameViewModelDelegate
 
 extension GameViewController: GameViewModelDelegate {
+    func didStopGame() {
+        navigationController?.pushViewController(ResultViewController(), animated: false)
+    }
+    
     func didSetTracks() {
         albunsCarousel.reloadData()
     }
