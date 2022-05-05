@@ -28,10 +28,11 @@ final class DigaiAPI {
         
         request.fetch { response in
             completion(response)
+            
         }
     }
     
-    func joinRoom(for request: JoinRoomRequest, completion: @escaping (JoinRoomResponse?) -> Void) {
+    func joinRoom(for request: JoinRoomRequest, completion: @escaping (CreateRoomResponse?) -> Void) {
         let jsonData = try? JSONEncoder().encode(request)
         guard let url = URL(string: "\(baseURL)/api/join-room") else { return }
         var request = URLRequest(url: url)
@@ -42,7 +43,9 @@ final class DigaiAPI {
         
         request.fetch { response in
             completion(response)
+           
         }
+        
     }
     
     func fetchRooms(completion: @escaping (FetchRoomsResponse?) -> Void) {
@@ -66,6 +69,7 @@ final class DigaiAPI {
         request.httpBody = jsonData
         
         request.fetch { response in
+            
             completion(response)
         }
     }

@@ -17,7 +17,18 @@ class GameViewController: UIViewController {
     
     // MARK: - PRIVATE PROPERTIES
     
-    private let viewModel: GameViewModel = GameViewModel()
+    private var viewModel: GameViewModel
+    private lazy var socketManager = GameSocketManager(delegate: self)
+    
+    init(room: CreateRoomResponse){
+        
+        self.viewModel = GameViewModel(room: room)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UI
     
@@ -108,6 +119,7 @@ class GameViewController: UIViewController {
     
     @objc private func didTapStopButton(_ sender: UIButton) {
         print("STOP!")
+        socketManager.requestStop(player: "my name")
     }
     
     public func reloadCarouselData() {
@@ -175,5 +187,17 @@ extension GameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension GameViewController: GameSocketManagerDelegate {
+    func didConnect() {
+        debugPrint("did connect with socket")
+    }
+    
+    func didReceive(message: String) {
+        if message == "stop-requested" {
+            // go to score screen
+        }
     }
 }

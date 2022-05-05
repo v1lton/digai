@@ -10,6 +10,7 @@
 		178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */; };
 		17820A0227FA17E900B49CA2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* Player.swift */; };
 		17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* DigaiAPI.swift */; };
+		17B9BC15282322ED00EF7F68 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 17B9BC14282322ED00EF7F68 /* SocketIO */; };
 		2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD436DDCA126139424C41C /* Pods_digai.framework */; };
 		8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612B27F64CBB00341F8B /* AppDelegate.swift */; };
 		8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612D27F64CBB00341F8B /* SceneDelegate.swift */; };
@@ -31,10 +32,18 @@
 		89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */; };
 		89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */; };
 		89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */; };
-		89DACAA32820B51300D5F23E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA22820B51300D5F23E /* Track.swift */; };
 		89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */; };
 		89DACAA72821E84900D5F23E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DACAA62821E84900D5F23E /* Result.swift */; };
 		89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3C8552823024400544ED8 /* ResultTableViewCell.swift */; };
+		AD95DE422820B72100EF10AE /* GameSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95DE412820B72000EF10AE /* GameSocketManager.swift */; };
+		D74CFA3D2820AF7100E3818B /* JoinRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */; };
+		D74CFA402820C6D900E3818B /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74CFA3F2820C6D900E3818B /* Rubik-Bold.ttf */; };
+		D74CFA422820CC3B00E3818B /* JoinRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */; };
+		D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */; };
+		D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */; };
+		D7CA22CA2822D0E5002C8A8F /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22C92822D0E5002C8A8F /* CreateRoomViewController.swift */; };
+		D7CA22CC2822D182002C8A8F /* CreateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22CB2822D182002C8A8F /* CreateRoomViewModel.swift */; };
+		D7CA22CE28231433002C8A8F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA22CD28231433002C8A8F /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,11 +76,19 @@
 		89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRoomResponse.swift; sourceTree = "<group>"; };
 		89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomRequest.swift; sourceTree = "<group>"; };
 		89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartRoomResponse.swift; sourceTree = "<group>"; };
-		89DACAA22820B51300D5F23E /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModelProtocol.swift; sourceTree = "<group>"; };
 		89DACAA62821E84900D5F23E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		89E3C8552823024400544ED8 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		9DE8EC013780ED97E0B1291B /* Pods-digai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digai.release.xcconfig"; path = "Target Support Files/Pods-digai/Pods-digai.release.xcconfig"; sourceTree = "<group>"; };
+		AD95DE412820B72000EF10AE /* GameSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSocketManager.swift; sourceTree = "<group>"; };
+		D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewController.swift; sourceTree = "<group>"; };
+		D74CFA3F2820C6D900E3818B /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomViewModel.swift; sourceTree = "<group>"; };
+		D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewModel.swift; sourceTree = "<group>"; };
+		D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
+		D7CA22C92822D0E5002C8A8F /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
+		D7CA22CB2822D182002C8A8F /* CreateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewModel.swift; sourceTree = "<group>"; };
+		D7CA22CD28231433002C8A8F /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */,
+				17B9BC15282322ED00EF7F68 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +150,7 @@
 		8942612A27F64CBB00341F8B /* digai */ = {
 			isa = PBXGroup;
 			children = (
+				D74CFA3E2820C69300E3818B /* fonts */,
 				89CB30F7281F062A0068909C /* UI */,
 				89CB30F6281F061B0068909C /* Networking */,
 				17820A1027FA1A1E00B49CA2 /* Extensions */,
@@ -171,10 +190,10 @@
 		89CB30F6281F061B0068909C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				89DACAA12820B50800D5F23E /* Models */,
 				178209FF27FA17E900B49CA2 /* DigaiAPI.swift */,
 				89CB3116281F333D0068909C /* Requests */,
 				89CB3111281F32680068909C /* Responses */,
+				AD95DE402820B70000EF10AE /* Socket */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -182,6 +201,9 @@
 		89CB30F7281F062A0068909C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D74CFA432820D0BC00E3818B /* WaitingRoom */,
+				D74CFA3B2820746000E3818B /* JoinRoom */,
+				D74CFA3A2820744500E3818B /* CreateRoom */,
 				8942614027F64E8E00341F8B /* Result */,
 				8942613F27F64E7000341F8B /* Game */,
 			);
@@ -213,15 +235,6 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		89DACAA12820B50800D5F23E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				89DACAA22820B51300D5F23E /* Track.swift */,
-				89DACAA62821E84900D5F23E /* Result.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		89E3C8542823022500544ED8 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,12 +243,57 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		AD95DE402820B70000EF10AE /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				AD95DE412820B72000EF10AE /* GameSocketManager.swift */,
+				89DACAA62821E84900D5F23E /* Result.swift */,
+				D7CA22CD28231433002C8A8F /* Track.swift */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
 		CD2017C96E6275BAA105F80A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				7FFD436DDCA126139424C41C /* Pods_digai.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D74CFA3A2820744500E3818B /* CreateRoom */ = {
+			isa = PBXGroup;
+			children = (
+				D7CA22C92822D0E5002C8A8F /* CreateRoomViewController.swift */,
+				D7CA22CB2822D182002C8A8F /* CreateRoomViewModel.swift */,
+			);
+			path = CreateRoom;
+			sourceTree = "<group>";
+		};
+		D74CFA3B2820746000E3818B /* JoinRoom */ = {
+			isa = PBXGroup;
+			children = (
+				D74CFA3C2820AF7100E3818B /* JoinRoomViewController.swift */,
+				D74CFA412820CC3B00E3818B /* JoinRoomViewModel.swift */,
+			);
+			path = JoinRoom;
+			sourceTree = "<group>";
+		};
+		D74CFA3E2820C69300E3818B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D74CFA3F2820C6D900E3818B /* Rubik-Bold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		D74CFA432820D0BC00E3818B /* WaitingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */,
+				D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */,
+			);
+			path = WaitingRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +314,9 @@
 			dependencies = (
 			);
 			name = digai;
+			packageProductDependencies = (
+				17B9BC14282322ED00EF7F68 /* SocketIO */,
+			);
 			productName = digai;
 			productReference = 8942612827F64CBB00341F8B /* digai.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +346,9 @@
 				Base,
 			);
 			mainGroup = 8942611F27F64CBB00341F8B;
+			packageReferences = (
+				17B9BC13282322ED00EF7F68 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+			);
 			productRefGroup = 8942612927F64CBB00341F8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -300,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8942613827F64CBF00341F8B /* LaunchScreen.storyboard in Resources */,
+				D74CFA402820C6D900E3818B /* Rubik-Bold.ttf in Resources */,
 				8942613527F64CBF00341F8B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,10 +419,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				89DACAA02820283300D5F23E /* RestartRoomResponse.swift in Sources */,
+				D74CFA3D2820AF7100E3818B /* JoinRoomViewController.swift in Sources */,
 				8942614227F64EAC00341F8B /* GameViewController.swift in Sources */,
 				8942614627F64EC900341F8B /* ResultViewModel.swift in Sources */,
 				17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */,
+				D7CA22CC2822D182002C8A8F /* CreateRoomViewModel.swift in Sources */,
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
+				D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
 				89DACAA72821E84900D5F23E /* Result.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
@@ -365,16 +433,20 @@
 				89DACA972820272C00D5F23E /* ExitRoomResponse.swift in Sources */,
 				89DACAA52821E80400D5F23E /* ResultViewModelProtocol.swift in Sources */,
 				89DACA8F282025F200D5F23E /* JoinRoomRequest.swift in Sources */,
+				D74CFA422820CC3B00E3818B /* JoinRoomViewModel.swift in Sources */,
+				D74CFA472820D11700E3818B /* WaitingRoomViewController.swift in Sources */,
 				8942614827F64ED600341F8B /* ResultViewController.swift in Sources */,
 				89DACA932820268F00D5F23E /* FetchRoomsResponse.swift in Sources */,
+				D7CA22CA2822D0E5002C8A8F /* CreateRoomViewController.swift in Sources */,
+				AD95DE422820B72100EF10AE /* GameSocketManager.swift in Sources */,
 				89DACA9E2820281500D5F23E /* RestartRoomRequest.swift in Sources */,
 				8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */,
 				89DACA9B282027CC00D5F23E /* UpdateRoomResponse.swift in Sources */,
 				8942614C27FC7E8200341F8B /* iCarousel.m in Sources */,
 				8942614427F64EB900341F8B /* GameViewModel.swift in Sources */,
 				8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */,
+				D7CA22CE28231433002C8A8F /* Track.swift in Sources */,
 				89DACA95282026FB00D5F23E /* ExitRoomRequest.swift in Sources */,
-				89DACAA32820B51300D5F23E /* Track.swift in Sources */,
 				89CB3118281F33720068909C /* CreateRoomResponse.swift in Sources */,
 				89E3C8562823024400544ED8 /* ResultTableViewCell.swift in Sources */,
 				89DACA992820276E00D5F23E /* UpdateRoomRequest.swift in Sources */,
@@ -518,7 +590,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D84M4LK87S;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = digai/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -550,7 +622,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D84M4LK87S;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = digai/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -594,6 +666,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17B9BC13282322ED00EF7F68 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17B9BC14282322ED00EF7F68 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17B9BC13282322ED00EF7F68 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8942612027F64CBB00341F8B /* Project object */;
 }

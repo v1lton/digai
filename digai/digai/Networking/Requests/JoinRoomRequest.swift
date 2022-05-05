@@ -6,12 +6,12 @@
 //
 
 public struct JoinRoomRequest: Codable {
-    var roomID: String
+    var roomId: String
     var user: User
     
     init(roomId: String,
          user: User) {
-        self.roomID = roomId
+        self.roomId = roomId
         self.user = user
     }
 }
