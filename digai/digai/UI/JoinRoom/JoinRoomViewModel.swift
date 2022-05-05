@@ -11,7 +11,7 @@ import SDWebImage
 class JoinRoomViewModel {
     
     var delegate: JoinRoomDelegate?
-    public var socketManager: GameSocketManager?
+    var socketManager: GameSocketManager?
     private var room: CreateRoomResponse?
     private let api = DigaiAPI()
     
@@ -52,7 +52,7 @@ class JoinRoomViewModel {
     
     public func getRoom() -> CreateRoomResponse {
         
-        return self.room ?? CreateRoomResponse(id: "", players: [], tracks: [], started: false, steps: 0, genres: [])
+        return self.room ?? CreateRoomResponse(id: "", tracks: [], started: false, genres: [])
     }
     
     private func validate(input: String?, errorTitle: String, errorMessage: String) -> String? {

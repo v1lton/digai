@@ -8,25 +8,43 @@
 import SDWebImage
 
 class WaitingRoomViewModel {
-    //private var digaiResponse: CreateRoomResponse
+    
+    var delegate: WaitingRoomDelegate?
+    public var socketManager: GameSocketManager?
     private var roomName: String
-    public var socketManager: GameSocketManager
     
-    init(roomName: String, socket: GameSocketManager){
+    init(roomName: String, socketManager: GameSocketManager?){
         //self.digaiResponse = room
-        self.socketManager = socket
+        self.socketManager = socketManager
         self.roomName = roomName
-    }
-    
-    public func getRoom() -> CreateRoomResponse {
-        
-        /*return self.digaiResponse ?? CreateRoomResponse(id: "", players: [], tracks: [], started: false, steps: 0, genres: [])*/
-        return CreateRoomResponse(id: "", players: [], tracks: [], started: false, steps: 0, genres: [])
+        self.socketManager = socketManager
+        self.socketManager?.delegate = self
     }
     
     public func getRoomId() -> String {
-        
-        //return self.digaiResponse.id
         return roomName
+    }
+    
+    public func startGame() {
+        socketManager?.requestStart { [weak self] tracks in
+            guard let self = self, let tracks = tracks else { return }
+            let roomResponse = CreateRoomResponse(id: self.roomName, tracks: tracks,
+                                                  started: true, genres: [])
+            self.delegate?.didStartGame(roomResponse: roomResponse)
+        }
+    }
+}
+
+protocol WaitingRoomDelegate {
+    func didStartGame(roomResponse: CreateRoomResponse)
+}
+
+extension WaitingRoomViewModel: GameSocketManagerDelegate {    
+    func didReceive(message: String, data: Any?) {
+        if message == "propagate-start", let tracks = data as? [Track] {
+            let roomResponse = CreateRoomResponse(id: roomName, tracks: tracks,
+                                                  started: true, genres: [])
+            delegate?.didStartGame(roomResponse: roomResponse)
+        }
     }
 }

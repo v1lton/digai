@@ -70,6 +70,8 @@ class GameViewController: UIViewController {
         setupView()
         buildViewHierarchy()
         constraintUI()
+        
+        playSong(atIndex: 0)
     }
     
     // MARK: - SETUP
