@@ -12,9 +12,9 @@ class WaitingRoomViewController: UIViewController {
     private var viewModel: WaitingRoomViewModel
    
     
-    init(roomName: String){
+    init(roomName: String, socket: GameSocketManager){
         
-        self.viewModel = WaitingRoomViewModel(roomName: roomName)
+        self.viewModel = WaitingRoomViewModel(roomName: roomName, socket: socket)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -52,7 +52,24 @@ class WaitingRoomViewController: UIViewController {
     }
     
     @objc private func didTapStartButton(_ sender: UIButton) {
-        navigationController?.pushViewController(GameViewController(room: viewModel.getRoom()), animated: false)
+        //navigationController?.pushViewController(GameViewController(room: viewModel.getRoom()), animated: false)
+        viewModel.socketManager.requestStop()
     }
 
+}
+
+extension WaitingRoomViewController: GameSocketManagerDelegate {
+    func didConnect() {
+        debugPrint("did connect with socket")
+    }
+    
+    func didReceive(message: String) {
+        if message == "stop requested" {
+            print("stop")
+            navigationController?.pushViewController(ResultViewController(), animated: false)
+            
+        }
+    }
+    
+    
 }

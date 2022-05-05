@@ -41,9 +41,9 @@ class GameSocketManager {
             self?.delegate?.didConnect()
         }
         
-        /*socket.on("stop-requested") { [weak self] _, _ in
+        socket.on("propagate-stop") { [weak self] _, _ in
             self?.delegate?.didReceive(message: "stop requested")
-        }*/
+        }
     }
     
     func createRoom(player: String, completion: @escaping (String?) -> Void) {
@@ -71,8 +71,11 @@ class GameSocketManager {
         }
     }
     
-    func requestStop(player: String) {
-        socket.emit("stop", ["player_name": player])
+    func requestStop() {
+        socket.emitWithAck("stop").timingOut(after: 2) { info in
+            print(info)
+            self.delegate?.didReceive(message: "stop requested")
+        }
     }
 }
 

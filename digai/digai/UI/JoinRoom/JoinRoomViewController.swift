@@ -145,15 +145,19 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension JoinRoomViewController : JoinRoomDelegate {
+    func didStopGame() {
+        navigationController?.pushViewController(ResultViewController(), animated: false)
+    }
+    
     func didCreateRoom(_ roomName: String) {
         DispatchQueue.main.async {
-            self.navigationController?.pushViewController(WaitingRoomViewController(roomName: roomName), animated: false)
+            self.navigationController?.pushViewController(WaitingRoomViewController(roomName: roomName, socket: self.viewModel.socketManager!), animated: false)
         }
     }
     
     func didJoinRoom(_ roomName: String) {
         DispatchQueue.main.async {
-            self.navigationController?.pushViewController(WaitingRoomViewController(roomName: roomName), animated: false)
+            self.navigationController?.pushViewController(WaitingRoomViewController(roomName: roomName, socket: self.viewModel.socketManager!), animated: false)
         }
     }
     

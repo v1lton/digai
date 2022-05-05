@@ -10,9 +10,11 @@ import SDWebImage
 class WaitingRoomViewModel {
     //private var digaiResponse: CreateRoomResponse
     private var roomName: String
+    public var socketManager: GameSocketManager
     
-    init(roomName: String){
+    init(roomName: String, socket: GameSocketManager){
         //self.digaiResponse = room
+        self.socketManager = socket
         self.roomName = roomName
     }
     

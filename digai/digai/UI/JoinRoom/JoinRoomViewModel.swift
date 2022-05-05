@@ -11,7 +11,7 @@ import SDWebImage
 class JoinRoomViewModel {
     
     var delegate: JoinRoomDelegate?
-    private var socketManager: GameSocketManager?
+    public var socketManager: GameSocketManager?
     private var room: CreateRoomResponse?
     private let api = DigaiAPI()
     
@@ -69,6 +69,7 @@ protocol JoinRoomDelegate {
     func didCreateRoom(_ roomName: String)
     func didJoinRoom(_ roomName: String)
     func showError(title: String, message: String)
+    func didStopGame()
 }
 
 extension JoinRoomViewModel: GameSocketManagerDelegate {
@@ -76,5 +77,11 @@ extension JoinRoomViewModel: GameSocketManagerDelegate {
         debugPrint("did connect with socket")
     }
     
-    func didReceive(message: String) {}
+    func didReceive(message: String) {
+        if message == "stop requested" {
+            print("stop")
+            self.delegate?.didStopGame()
+            
+        }
+    }
 }

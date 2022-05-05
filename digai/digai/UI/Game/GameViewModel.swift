@@ -12,7 +12,7 @@ class GameViewModel {
     // MARK: - PUBLIC PROPERTIES
     
     var delegate: GameViewModelDelegate?
-    
+    private var socketManager: GameSocketManager
     // MARK: - PRIVATE PROPERTIES
     
     private var userGuesses: [String?] = []
@@ -22,9 +22,10 @@ class GameViewModel {
     private var digaiResponse: CreateRoomResponse
     
     // MARK: - INITIALIZER
-    
-    init(room: CreateRoomResponse) {
+     
+    init(room: CreateRoomResponse, socket: GameSocketManager) {
         self.digaiResponse = room
+        self.socketManager = socket
         setTracks()
     }
     
