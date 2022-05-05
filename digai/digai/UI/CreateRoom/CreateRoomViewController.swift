@@ -58,7 +58,7 @@ class CreateRoomViewController: UIViewController {
     
     @objc private func didTapCreateButton(_ sender: UIButton) {
 //        socketManager?.joinRoom(player: self.player, roomName: self.roomName)
-        self.navigationController?.pushViewController(WaitingRoomViewController(roomName: self.roomName), animated: false)
+//        self.navigationController?.pushViewController(WaitingRoomViewController(roomName: self.roomName), animated: false)
     }
 
 }
@@ -66,10 +66,5 @@ class CreateRoomViewController: UIViewController {
 extension CreateRoomViewController: GameSocketManagerDelegate {
     func didConnect() {
         debugPrint("did connect with socket")
-        
-    }
-    
-    func didReceive(message: String) {
-        
     }
 }

@@ -11,10 +11,9 @@ class WaitingRoomViewController: UIViewController {
     
     private var viewModel: WaitingRoomViewModel
    
-    
-    init(roomName: String){
+    init(roomName: String, socketManager: GameSocketManager?){
         
-        self.viewModel = WaitingRoomViewModel(roomName: roomName)
+        self.viewModel = WaitingRoomViewModel(roomName: roomName, socketManager: socketManager)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,6 +34,7 @@ class WaitingRoomViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         view.backgroundColor = .white
         view.addSubview(startButton)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black,
@@ -52,7 +52,12 @@ class WaitingRoomViewController: UIViewController {
     }
     
     @objc private func didTapStartButton(_ sender: UIButton) {
-        navigationController?.pushViewController(GameViewController(room: viewModel.getRoom()), animated: false)
+        viewModel.startGame()
     }
+}
 
+extension WaitingRoomViewController: WaitingRoomDelegate {
+    func didStartGame(roomResponse: CreateRoomResponse) {
+        navigationController?.pushViewController(GameViewController(room: roomResponse), animated: true)
+    }
 }

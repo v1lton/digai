@@ -10,7 +10,12 @@ import SocketIO
 
 protocol GameSocketManagerDelegate: AnyObject {
     func didConnect()
-    func didReceive(message: String)
+    func didReceive(message: String, data: Any?)
+}
+
+extension GameSocketManagerDelegate {
+    func didConnect() {}
+    func didReceive(message: String, data: Any?) {}
 }
 
 class GameSocketManager {
@@ -44,6 +49,15 @@ class GameSocketManager {
         /*socket.on("stop-requested") { [weak self] _, _ in
             self?.delegate?.didReceive(message: "stop requested")
         }*/
+        
+        socket.on("propagate-start") { [weak self] data, _ in
+            var tracks: [Track]?
+            if let tracksString = data.first as? String, let data = tracksString.data(using: .utf8) {
+                tracks = try? JSONDecoder().decode([Track].self, from: data)
+            }
+            
+            self?.delegate?.didReceive(message: "propagate-start", data: tracks)
+        }
     }
     
     func createRoom(player: String, completion: @escaping (String?) -> Void) {
@@ -65,6 +79,16 @@ class GameSocketManager {
         socket.emitWithAck("join-room", roomName, player).timingOut(after: 2) { info in
             if let room = info.first as? String, room == roomName {
                 completion(room)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func requestStart(completion: @escaping ([Track]?) -> Void) {
+        socket.emitWithAck("start").timingOut(after: 2) { info in
+            if let tracksString = info.first as? String, let data = tracksString.data(using: .utf8) {
+                completion(try? JSONDecoder().decode([Track].self, from: data))
             } else {
                 completion(nil)
             }
