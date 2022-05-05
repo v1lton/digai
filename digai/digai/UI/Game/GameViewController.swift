@@ -18,7 +18,6 @@ class GameViewController: UIViewController {
     // MARK: - PRIVATE PROPERTIES
     
     private var viewModel: GameViewModel
-    //private lazy var socketManager = GameSocketManager(delegate: self)
     
     init(room: CreateRoomResponse, socket: GameSocketManager){
         
@@ -119,7 +118,7 @@ class GameViewController: UIViewController {
     
     @objc private func didTapStopButton(_ sender: UIButton) {
         print("STOP!")
-        //socketManager.requestStop()
+        viewModel.socketManager.requestStop()
     }
     
     public func reloadCarouselData() {

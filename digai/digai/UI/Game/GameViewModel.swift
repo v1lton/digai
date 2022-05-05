@@ -12,7 +12,7 @@ class GameViewModel {
     // MARK: - PUBLIC PROPERTIES
     
     var delegate: GameViewModelDelegate?
-    private var socketManager: GameSocketManager
+    public var socketManager: GameSocketManager
     // MARK: - PRIVATE PROPERTIES
     
     private var userGuesses: [String?] = []

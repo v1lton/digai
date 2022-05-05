@@ -57,19 +57,3 @@ class WaitingRoomViewController: UIViewController {
     }
 
 }
-
-extension WaitingRoomViewController: GameSocketManagerDelegate {
-    func didConnect() {
-        debugPrint("did connect with socket")
-    }
-    
-    func didReceive(message: String) {
-        if message == "stop requested" {
-            print("stop")
-            navigationController?.pushViewController(ResultViewController(), animated: false)
-            
-        }
-    }
-    
-    
-}
