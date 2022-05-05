@@ -149,17 +149,15 @@ extension JoinRoomViewController : JoinRoomDelegate {
         navigationController?.pushViewController(ResultViewController(), animated: false)
     }
     
-    func didCreateRoom(_ roomName: String) {
-        let controller = WaitingRoomViewController(roomName: roomName,
-                                                   socketManager: viewModel.socketManager)
+    func didCreateRoom(_ joinRoomResponse: JoinRoomResponse) {
+        let controller = WaitingRoomViewController(joinRoomResponse, socketManager: viewModel.socketManager)
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(controller, animated: false)
         }
     }
     
-    func didJoinRoom(_ roomName: String) {
-        let controller = WaitingRoomViewController(roomName: roomName,
-                                                   socketManager: viewModel.socketManager)
+    func didJoinRoom(_ joinRoomResponse: JoinRoomResponse) {
+        let controller = WaitingRoomViewController(joinRoomResponse, socketManager: viewModel.socketManager)
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(controller, animated: false)
         }

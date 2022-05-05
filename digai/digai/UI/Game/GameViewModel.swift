@@ -12,7 +12,7 @@ class GameViewModel {
     // MARK: - PUBLIC PROPERTIES
     
     var delegate: GameViewModelDelegate?
-    public var socketManager: GameSocketManager
+    public var socketManager: GameSocketManager?
     // MARK: - PRIVATE PROPERTIES
     
     private var userGuesses: [String?] = []
@@ -23,9 +23,9 @@ class GameViewModel {
     
     // MARK: - INITIALIZER
      
-    init(room: CreateRoomResponse, socket: GameSocketManager) {
+    init(room: CreateRoomResponse, socketManager: GameSocketManager?) {
         self.digaiResponse = room
-        self.socketManager = socket
+        self.socketManager = socketManager
         setTracks()
     }
     
@@ -63,7 +63,6 @@ class GameViewModel {
     }
     
     public func getAudioTrack(at index: Int) -> Track? {
-        //guard let digaiResponse = digaiResponse else { return nil }
         if index < digaiResponse.tracks.count {
             return digaiResponse.tracks[index]
         }

@@ -29,7 +29,8 @@ class JoinRoomViewModel {
                                          message: "não conseguimos criar a sala, tente novamente")
                 return
             }
-            self?.delegate?.didCreateRoom(roomName)
+            self?.delegate?.didCreateRoom(JoinRoomResponse(id: roomName, players: [playerName],
+                                                           tracks: [], started: false, steps: 5, genres: []))
         }
         
     }
@@ -40,13 +41,14 @@ class JoinRoomViewModel {
         guard let roomCode = validate(input: id, errorTitle: "código da sala inválido",
                                       errorMessage: "o campo de código da sala é obrigatório") else { return }
         
-        socketManager?.joinRoom(player: playerName, roomName: roomCode) { [weak self] roomName in
-            guard let roomName = roomName else {
+        socketManager?.joinRoom(player: playerName, roomName: roomCode) { [weak self] players in
+            guard let players = players else {
                 self?.delegate?.showError(title: "erro ao entrar na sala",
                                           message: "código da sala incorreto, tente novamente")
                 return
             }
-            self?.delegate?.didJoinRoom(roomName)
+            self?.delegate?.didJoinRoom(JoinRoomResponse(id: roomCode.lowercased(), players: players,
+                                                         tracks: [], started: false, steps: 5, genres: []))
         }
     }
     
@@ -66,8 +68,8 @@ class JoinRoomViewModel {
 }
 
 protocol JoinRoomDelegate {
-    func didCreateRoom(_ roomName: String)
-    func didJoinRoom(_ roomName: String)
+    func didCreateRoom(_ joinRoomResponse: JoinRoomResponse)
+    func didJoinRoom(_ joinRoomResponse: JoinRoomResponse)
     func showError(title: String, message: String)
     func didStopGame()
 }

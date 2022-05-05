@@ -50,6 +50,11 @@ class GameSocketManager {
             self?.delegate?.didReceive(message: "stop requested", data: nil)
         }
         
+        socket.on("room-update") { [weak self] data, _ in
+            guard let players = data.first as? [String], !players.isEmpty else { return }
+            self?.delegate?.didReceive(message: "room-update", data: players)
+        }
+        
         socket.on("propagate-start") { [weak self] data, _ in
             var tracks: [Track]?
             if let tracksString = data.first as? String, let data = tracksString.data(using: .utf8) {
@@ -73,12 +78,12 @@ class GameSocketManager {
     }
 
     
-    func joinRoom(player: String, roomName: String, completion: @escaping (String?) -> Void) {
+    func joinRoom(player: String, roomName: String, completion: @escaping ([String]?) -> Void) {
         let roomName = roomName.lowercased()
         
         socket.emitWithAck("join-room", roomName, player).timingOut(after: 2) { info in
-            if let room = info.first as? String, room == roomName {
-                completion(room)
+            if let players = info.first as? [String], !players.isEmpty {
+                completion(players)
             } else {
                 completion(nil)
             }

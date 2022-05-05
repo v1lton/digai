@@ -19,9 +19,9 @@ class GameViewController: UIViewController {
     
     private var viewModel: GameViewModel
     
-    init(room: CreateRoomResponse, socket: GameSocketManager){
+    init(room: CreateRoomResponse, socketManager: GameSocketManager?){
         
-        self.viewModel = GameViewModel(room: room, socket: socket)
+        self.viewModel = GameViewModel(room: room, socketManager: socketManager)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -119,9 +119,7 @@ class GameViewController: UIViewController {
     // MARK: - ACTIONS
     
     @objc private func didTapStopButton(_ sender: UIButton) {
-        print("STOP!")
-        Player.shared.pause()
-        viewModel.socketManager.requestStop()
+        viewModel.socketManager?.requestStop()
     }
     
     public func reloadCarouselData() {
@@ -133,6 +131,7 @@ class GameViewController: UIViewController {
 
 extension GameViewController: GameViewModelDelegate {
     func didStopGame() {
+        Player.shared.pause()
         navigationController?.pushViewController(ResultViewController(), animated: false)
     }
     
