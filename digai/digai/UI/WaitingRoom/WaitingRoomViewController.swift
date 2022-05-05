@@ -52,6 +52,8 @@ class WaitingRoomViewController: UIViewController {
     }
     
     @objc private func didTapStartButton(_ sender: UIButton) {
-        //navigationController?.pushViewController(GameViewController(room: viewModel.getRoom()), animated: false)
+        //navigationController?.pushViewController(GameViewController(room: viewModel.getRoom(), socket: self.viewModel.socketManager!), animated: false)
+       
+    }
 
 }
