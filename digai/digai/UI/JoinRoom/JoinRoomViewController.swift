@@ -149,7 +149,7 @@ extension JoinRoomViewController : JoinRoomDelegate {
 // MARK: - ViewCode
 
 extension JoinRoomViewController: ViewCode {
-    func buildHierarchy() {
+    func buildViewHierarchy() {
         view.addSubview(viewTitle)
         view.addSubview(nameTexfieldTitle)
         view.addSubview(nameTextField)

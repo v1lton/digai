@@ -85,7 +85,7 @@ extension WaitingRoomViewController: WaitingRoomDelegate {
 // MARK: - VIEW CODE
 
 extension WaitingRoomViewController: ViewCode {
-    func buildHierarchy() {
+    func buildViewHierarchy() {
         view.addSubview(playersLabel)
         view.addSubview(startButton)
     }
