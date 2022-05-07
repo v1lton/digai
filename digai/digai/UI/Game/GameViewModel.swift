@@ -5,20 +5,22 @@
 //  Created by Wilton Ramos on 31/03/22.
 //
 
-import SDWebImage
+protocol GameViewModelDelegate {
+    func didSetTracks()
+}
 
 class GameViewModel {
     
     // MARK: - PUBLIC PROPERTIES
     
     var delegate: GameViewModelDelegate?
-    public var socketManager: GameSocketManager?
+    var socketManager: GameSocketManager?
+    var textFieldPlaceHolder: String = "E o nome da música é..."
+    
     // MARK: - PRIVATE PROPERTIES
     
     private var userGuesses: [String?] = []
     private var index: Int = 0
-    
-    private let api = DigaiAPI()
     private var digaiResponse: CreateRoomResponse
     
     // MARK: - INITIALIZER
@@ -36,10 +38,8 @@ class GameViewModel {
     }
     
     public func getSongTitleGuess(at index: Int) -> String? {
-        if index >= 0 && index < userGuesses.count {
-            return userGuesses[index]
-        }
-        return nil
+        guard index >= 0 && index < userGuesses.count else { return nil }
+        return userGuesses[index]
     }
     
     public func getNumberOfItens() -> Int {
@@ -50,23 +50,14 @@ class GameViewModel {
         return index
     }
     
-    public func getTextFieldPlaceHolder() -> String {
-        return "E o nome da música é..."
-    }
-    
     public func getAlbumURL(at index: Int) -> String? {
-        //guard let digaiResponse = digaiResponse else { return nil }
-        if index < digaiResponse.tracks.count {
-            return digaiResponse.tracks[index].albumArt
-        }
-        return nil
+        guard index >= 0 && index < digaiResponse.tracks.count else { return nil }
+        return digaiResponse.tracks[index].albumArt
     }
     
     public func getAudioTrack(at index: Int) -> Track? {
-        if index < digaiResponse.tracks.count {
-            return digaiResponse.tracks[index]
-        }
-        return nil
+        guard index >= 0 && index < digaiResponse.tracks.count else { return nil }
+        return digaiResponse.tracks[index]
     }
     
     public func updateSongGuess(at index: Int, with songTitle: String?) {
@@ -80,20 +71,14 @@ class GameViewModel {
     // MARK: - PRIVATE METHODS
     
     public func setTracks() {
-       
-        self.setupUserGuesses(with: digaiResponse.tracks.count )
+        setupUserGuesses(with: digaiResponse.tracks.count )
+        
         DispatchQueue.main.async {
             self.delegate?.didSetTracks()
         }
-        
     }
     
     private func setupUserGuesses(with count: Int) {
         userGuesses = [String?](repeating: nil, count: count)
     }
-    
-}
-
-protocol GameViewModelDelegate {
-    func didSetTracks()
 }

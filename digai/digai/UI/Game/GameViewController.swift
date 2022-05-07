@@ -5,37 +5,19 @@
 //  Created by Wilton Ramos on 31/03/22.
 //
 
-import AVFoundation
-import SDWebImage
 import UIKit
 
 class GameViewController: UIViewController {
-    
-    //MARK: PUBLIC PROPERTIES
-    
-    var audioPlayer: AVAudioPlayer?
     
     // MARK: - PRIVATE PROPERTIES
     
     private var viewModel: GameViewModel
     
-    init(room: CreateRoomResponse, socketManager: GameSocketManager?){
-        
-        self.viewModel = GameViewModel(room: room, socketManager: socketManager)
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - UI
     
     private lazy var albunsCarousel: iCarousel = {
-        let carousel = iCarousel(frame: CGRect(x: 0,
-                                               y: view.frame.midY - 400,
-                                               width: view.frame.size.width,
-                                               height: 400))
+        let carousel = iCarousel(frame: CGRect(x: 0, y: view.frame.midY - 400,
+                                               width: view.frame.size.width, height: 400))
         carousel.dataSource = self
         carousel.delegate = self
         carousel.type = .coverFlow2
@@ -45,11 +27,13 @@ class GameViewController: UIViewController {
     private lazy var songTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = viewModel.getTextFieldPlaceHolder()
+        textField.placeholder = viewModel.textFieldPlaceHolder
         textField.textAlignment = .center
+        
         textField.layer.cornerRadius = 16
         textField.layer.borderWidth = 2
         textField.returnKeyType = .done
+        
         textField.delegate = self
         return textField
     }()
@@ -64,42 +48,24 @@ class GameViewController: UIViewController {
     
     // MARK: - INITIALIZERS
     
+    init(room: CreateRoomResponse, socketManager: GameSocketManager?){
+        
+        self.viewModel = GameViewModel(room: room, socketManager: socketManager)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         setupView()
-        buildViewHierarchy()
-        constraintUI()
-        
+
         playSong(atIndex: 0)
     }
-    
-    // MARK: - SETUP
-    
-    private func setupView() {
-        view.backgroundColor = .white
-    }
-    
-    private func buildViewHierarchy() {
-        view.addSubview(albunsCarousel)
-        view.addSubview(songTextField)
-        view.addSubview(stopButton)
-    }
-    
-    private func constraintUI() {
-        NSLayoutConstraint.activate([
-            songTextField.topAnchor.constraint(equalTo: albunsCarousel.bottomAnchor, constant: 64),
-            songTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            songTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            songTextField.heightAnchor.constraint(equalToConstant: 60),
-            
-            stopButton.topAnchor.constraint(equalTo: songTextField.bottomAnchor, constant: 32),
-            stopButton.widthAnchor.constraint(equalToConstant: 135),
-            stopButton.heightAnchor.constraint(equalToConstant: 60),
-            stopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-    }
-    
+
     // MARK: PRIVATE FUNCTIONS
     
     private func bindSongTitlesToTextField(forIndex index: Int) {
@@ -107,7 +73,7 @@ class GameViewController: UIViewController {
             songTextField.text = title
         } else {
             songTextField.text = nil
-            songTextField.placeholder = viewModel.getTextFieldPlaceHolder()
+            songTextField.placeholder = viewModel.textFieldPlaceHolder
         }
     }
     
@@ -164,13 +130,12 @@ extension GameViewController: iCarouselDataSource {
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         let imageView: UIImageView
         
-        if view != nil {
-            imageView = view as! UIImageView
+        if let view = view as? UIImageView {
+            imageView = view
+            
         } else {
-            imageView = UIImageView(frame: CGRect(x: 0,
-                                                  y: 0,
-                                                  width: self.view.frame.size.width/1.2,
-                                                  height: 300))
+            imageView = UIImageView(frame: CGRect(x: 0, y: 0,
+                                                  width: self.view.frame.size.width/1.2, height: 300))
         }
         
         if let albumURL = viewModel.getAlbumURL(at: index) {
@@ -184,6 +149,8 @@ extension GameViewController: iCarouselDataSource {
     }
 }
 
+// MARK: - UITextFieldDelegate
+
 extension GameViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         viewModel.updateSongGuess(at: viewModel.getIndex(), with: textField.text)
@@ -192,5 +159,33 @@ extension GameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - ViewCode
+
+extension GameViewController: ViewCode {
+    func buildViewHierarchy() {
+        view.addSubview(albunsCarousel)
+        view.addSubview(songTextField)
+        view.addSubview(stopButton)
+    }
+    
+    func applyConstraints() {
+        NSLayoutConstraint.activate([
+            songTextField.topAnchor.constraint(equalTo: albunsCarousel.bottomAnchor, constant: 64),
+            songTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            songTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            songTextField.heightAnchor.constraint(equalToConstant: 60),
+            
+            stopButton.topAnchor.constraint(equalTo: songTextField.bottomAnchor, constant: 32),
+            stopButton.widthAnchor.constraint(equalToConstant: 135),
+            stopButton.heightAnchor.constraint(equalToConstant: 60),
+            stopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    func additionalConfiguration() {
+        view.backgroundColor = .white
     }
 }
