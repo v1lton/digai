@@ -5,49 +5,55 @@
 //  Created by Morgana Galamba on 02/05/22.
 //
 
-import SDWebImage
+protocol WaitingRoomDelegate {
+    func didUpdatePlayers()
+    func didStartGame(roomResponse: CreateRoomResponse)
+    func didStopGame()
+}
 
 class WaitingRoomViewModel {
     
+    // MARK: - PUBLIC PROPERTIES
+        
     var delegate: WaitingRoomDelegate?
-    public var socketManager: GameSocketManager?
-    private var roomName: String
-    private var players: [String] {
-        didSet { delegate?.didUpdatePlayers() }
-    }
+    var socketManager: GameSocketManager?
     
-    init(_ response: JoinRoomResponse, socketManager: GameSocketManager?){
-        self.roomName = response.id
-        self.players = response.players
-        self.socketManager = socketManager
-        self.socketManager?.delegate = self
-    }
-    
-    public func getRoomId() -> String {
-        return roomName
-    }
-    
-    func getPlayersText() -> String {
+    var playersText: String {
         return players.enumerated()
             .map { (index, player) in return "\(index + 1). \(player)" }
             .joined(separator: "\n\n")
     }
     
+    // MARK: - PRIVATE PROPERTIES
+    
+    private(set) var roomId: String
+    private var players: [String] {
+        didSet { delegate?.didUpdatePlayers() }
+    }
+    
+    // MARK: - INITIALIZER
+    
+    init(_ response: JoinRoomResponse, socketManager: GameSocketManager?){
+        self.roomId = response.id
+        self.players = response.players
+        
+        self.socketManager = socketManager
+        self.socketManager?.delegate = self
+    }
+    
+    // MARK: - PUBLIC METHODS
+    
     func startGame() {
         socketManager?.requestStart { [weak self] tracks in
             guard let self = self, let tracks = tracks else { return }
-            let roomResponse = CreateRoomResponse(id: self.roomName, tracks: tracks,
+            let roomResponse = CreateRoomResponse(id: self.roomId, tracks: tracks,
                                                   started: true, genres: [])
             self.delegate?.didStartGame(roomResponse: roomResponse)
         }
     }
 }
 
-protocol WaitingRoomDelegate {
-    func didUpdatePlayers()
-    func didStartGame(roomResponse: CreateRoomResponse)
-    func didStopGame()
-}
+// MARK: - GameSocketManagerDelegate
 
 extension WaitingRoomViewModel: GameSocketManagerDelegate {    
     func didReceive(message: String, data: Any?) {
@@ -55,14 +61,13 @@ extension WaitingRoomViewModel: GameSocketManagerDelegate {
             self.players = players
             
         } else if message == "propagate-start", let tracks = data as? [Track] {
-            let roomResponse = CreateRoomResponse(id: roomName, tracks: tracks,
+            let roomResponse = CreateRoomResponse(id: roomId, tracks: tracks,
                                                   started: true, genres: [])
             delegate?.didStartGame(roomResponse: roomResponse)
             
         } else if message == "stop requested" {
             Player.shared.pause()
-            self.delegate?.didStopGame()
-            
+            delegate?.didStopGame()
         }
     }
 }
