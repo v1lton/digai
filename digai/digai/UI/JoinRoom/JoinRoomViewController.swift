@@ -117,24 +117,15 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
 // MARK: - JoinRoomDelegate
 
 extension JoinRoomViewController : JoinRoomDelegate {
-    func didStopGame() {
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(ResultViewController(), animated: false)
-        }
-    }
     
     func didCreateRoom(_ joinRoomResponse: JoinRoomResponse) {
         let controller = WaitingRoomViewController(joinRoomResponse, socketManager: viewModel.socketManager)
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(controller, animated: false)
-        }
+        navigationController?.pushViewController(controller, animated: false)
     }
     
     func didJoinRoom(_ joinRoomResponse: JoinRoomResponse) {
         let controller = WaitingRoomViewController(joinRoomResponse, socketManager: viewModel.socketManager)
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(controller, animated: false)
-        }
+        navigationController?.pushViewController(controller, animated: false)
     }
     
     func showError(title: String, message: String) {

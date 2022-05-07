@@ -55,17 +55,23 @@ class WaitingRoomViewModel {
 
 // MARK: - GameSocketManagerDelegate
 
-extension WaitingRoomViewModel: GameSocketManagerDelegate {    
-    func didReceive(message: String, data: Any?) {
-        if message == "room-update", let players = data as? [String] {
+extension WaitingRoomViewModel: GameSocketManagerDelegate {
+
+    func didReceive(event: SocketEvents, data: Any?) {
+        
+        if event == .roomUpdate, let players = data as? [String] {
             self.players = players
             
-        } else if message == "propagate-start", let tracks = data as? [Track] {
+        } else if event == .propagateStart {
+            guard let tracksString = data as? String,
+                  let data = tracksString.data(using: .utf8),
+                  let tracks = try? JSONDecoder().decode([Track].self, from: data) else { return }
+                    
             let roomResponse = CreateRoomResponse(id: roomId, tracks: tracks,
                                                   started: true, genres: [])
             delegate?.didStartGame(roomResponse: roomResponse)
             
-        } else if message == "stop requested" {
+        } else if event == .propagateStop {
             Player.shared.pause()
             delegate?.didStopGame()
         }

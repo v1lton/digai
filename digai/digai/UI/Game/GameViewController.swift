@@ -85,7 +85,9 @@ class GameViewController: UIViewController {
     // MARK: - ACTIONS
     
     @objc private func didTapStopButton(_ sender: UIButton) {
-        viewModel.socketManager?.requestStop()
+        viewModel.socketManager?.requestStop() { [weak self] in
+            self?.didStopGame()
+        }
     }
     
     public func reloadCarouselData() {

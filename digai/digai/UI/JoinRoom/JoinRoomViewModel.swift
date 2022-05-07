@@ -9,7 +9,6 @@ protocol JoinRoomDelegate {
     func didCreateRoom(_ joinRoomResponse: JoinRoomResponse)
     func didJoinRoom(_ joinRoomResponse: JoinRoomResponse)
     func showError(title: String, message: String)
-    func didStopGame()
 }
 
 class JoinRoomViewModel {
@@ -19,10 +18,14 @@ class JoinRoomViewModel {
     var delegate: JoinRoomDelegate?
     var socketManager: GameSocketManager?
     
+    // MARK: - PRIVATE PROPERTIES
+    
+    private let stepsCount = 5
+    
     // MARK: - INITIALIZER
     
     init(){
-        self.socketManager = GameSocketManager(delegate: self)
+        self.socketManager = GameSocketManager()
     }
     
     // MARK: - PUBLIC METHODS
@@ -31,7 +34,7 @@ class JoinRoomViewModel {
         guard let playerName = validate(input: playerName, errorTitle: "nome inválido",
                                         errorMessage: "o campo de nome é obrigatório") else { return }
         
-        socketManager?.createRoom(player: playerName) { [weak self] roomId in
+        socketManager?.createRoom(player: playerName, steps: stepsCount) { [weak self] roomId in
             guard let roomId = roomId else {
                 self?.delegate?.showError(title: "erro ao criar sala",
                                           message: "não conseguimos criar a sala, tente novamente")
@@ -39,7 +42,8 @@ class JoinRoomViewModel {
             }
             
             let joinResponse = JoinRoomResponse(id: roomId, players: [playerName],
-                                                tracks: [], started: false, steps: 5, genres: [])
+                                                tracks: [], started: false,
+                                                steps: self?.stepsCount ?? 0 , genres: [])
             self?.delegate?.didCreateRoom(joinResponse)
         }
     }
@@ -50,7 +54,7 @@ class JoinRoomViewModel {
         guard let roomId = validate(input: id, errorTitle: "código da sala inválido",
                                     errorMessage: "o campo de código da sala é obrigatório") else { return }
         
-        socketManager?.joinRoom(player: playerName, roomName: roomId) { [weak self] players in
+        socketManager?.joinRoom(player: playerName, roomId: roomId) { [weak self] players in
             guard let players = players else {
                 self?.delegate?.showError(title: "erro ao entrar na sala",
                                           message: "código da sala incorreto, tente novamente")
@@ -72,19 +76,5 @@ class JoinRoomViewModel {
         }
         
         return input
-    }
-}
-
-// MARK: - GameSocketManagerDelegate
-
-extension JoinRoomViewModel: GameSocketManagerDelegate {
-    func didConnect() {
-        debugPrint("did connect with socket")
-    }
-    
-    func didReceive(message: String) {
-        if message == "stop requested" {
-            delegate?.didStopGame()
-        }
     }
 }

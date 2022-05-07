@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17464AD72826B18E00B71BBC /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17464AD62826B18E00B71BBC /* ViewCode.swift */; };
+		17464ADD2826D84200B71BBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17464ADC2826D84200B71BBC /* Assets.xcassets */; };
+		17464ADF2826DAA800B71BBC /* SocketEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17464ADE2826DAA800B71BBC /* SocketEvents.swift */; };
 		178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */; };
 		17820A0227FA17E900B49CA2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* Player.swift */; };
 		17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* DigaiAPI.swift */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		17464AD62826B18E00B71BBC /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		17464ADC2826D84200B71BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "digai/Support Files/Resources/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		17464ADE2826DAA800B71BBC /* SocketEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketEvents.swift; sourceTree = "<group>"; };
 		178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		178209FC27FA17E900B49CA2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		178209FF27FA17E900B49CA2 /* DigaiAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigaiAPI.swift; sourceTree = "<group>"; };
@@ -56,7 +60,6 @@
 		8942612827F64CBB00341F8B /* digai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8942612B27F64CBB00341F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8942612D27F64CBB00341F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8942613427F64CBF00341F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8942613727F64CBF00341F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8942613927F64CBF00341F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8942614127F64EAC00341F8B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D74CFA3E2820C69300E3818B /* fonts */,
-				8942613427F64CBF00341F8B /* Assets.xcassets */,
+				17464ADC2826D84200B71BBC /* Assets.xcassets */,
 				8942613627F64CBF00341F8B /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
@@ -275,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				AD95DE412820B72000EF10AE /* GameSocketManager.swift */,
+				17464ADE2826DAA800B71BBC /* SocketEvents.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -390,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8942613827F64CBF00341F8B /* LaunchScreen.storyboard in Resources */,
+				17464ADD2826D84200B71BBC /* Assets.xcassets in Resources */,
 				D74CFA402820C6D900E3818B /* Rubik-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +457,7 @@
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
 				D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */,
 				17464AD72826B18E00B71BBC /* ViewCode.swift in Sources */,
+				17464ADF2826DAA800B71BBC /* SocketEvents.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
 				89DACAA72821E84900D5F23E /* Result.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,

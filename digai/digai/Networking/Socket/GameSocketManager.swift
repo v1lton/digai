@@ -5,100 +5,83 @@
 //  Created by Faculdade on 02/05/22.
 //
 
-import Foundation
 import SocketIO
 
 protocol GameSocketManagerDelegate: AnyObject {
     func didConnect()
-    func didReceive(message: String, data: Any?)
+    func didReceive(event: SocketEvents, data: Any?)
 }
 
 extension GameSocketManagerDelegate {
     func didConnect() {}
-    func didReceive(message: String, data: Any?) {}
+    func didReceive(event: SocketEvents, data: Any?) {}
+}
+
+protocol SocketEvent {
+    var rawValue: String { get }
 }
 
 class GameSocketManager {
     
-    enum SocketError: Error {
-        case `default`
-    }
+    // MARK: - PRIVATE PROPERTIES
     
-    private let manager = SocketManager(socketURL: URL(string: "http://localhost:3000/")!,
-                                        config: [.log(false), .compress])
+    private let url: URL
+    private lazy var manager = SocketManager(socketURL: url, config: [.log(false), .compress])
+    private lazy var socket: SocketIOClient = manager.defaultSocket
+    
+    // MARK: - PUBLIC PROPERTIES
     
     weak var delegate: GameSocketManagerDelegate?
-    lazy var socket: SocketIOClient = manager.defaultSocket
     
-    init(delegate: GameSocketManagerDelegate) {
+    // MARK: - INITIALIZERS
+    
+    init(delegate: GameSocketManagerDelegate? = nil) {
+        self.url = URL(string: "http://localhost:3000/")!
         self.delegate = delegate
         
-        setupSocketEventes()
+        setupSocketEventListeners()
         socket.connect()
     }
     
-    private func stop() {
+    deinit {
         socket.removeAllHandlers()
     }
     
-    private func setupSocketEventes() {
-        socket.on(clientEvent: .connect) { [weak self] _, _ in
-            self?.delegate?.didConnect()
-        }
-        
-        socket.on("propagate-stop") { [weak self] _, _ in
-            self?.delegate?.didReceive(message: "stop requested", data: nil)
-        }
-        
-        socket.on("room-update") { [weak self] data, _ in
-            guard let players = data.first as? [String], !players.isEmpty else { return }
-            self?.delegate?.didReceive(message: "room-update", data: players)
-        }
-        
-        socket.on("propagate-start") { [weak self] data, _ in
-            var tracks: [Track]?
-            if let tracksString = data.first as? String, let data = tracksString.data(using: .utf8) {
-                tracks = try? JSONDecoder().decode([Track].self, from: data)
-            }
-            
-            self?.delegate?.didReceive(message: "propagate-start", data: tracks)
-        }
-    }
+    // MARK: - PUBLIC METHODS
     
-    func createRoom(player: String, completion: @escaping (String?) -> Void) {
-        let roomName = String(UUID().uuidString.prefix(4)).lowercased()
+    func createRoom(player: String, steps: Int, completion: @escaping (String?) -> Void) {
+        let roomId = String(UUID().uuidString.prefix(4)).lowercased()
+        let event = SocketEvents.createRoom.rawValue
         
-        socket.emitWithAck("create-room", roomName, player, 5).timingOut(after: 2) { info in
-            if let room = info.first as? String, room == roomName {
-                completion(room)
-            } else {
+        socket.emitWithAck(event, roomId, player, steps).timingOut(after: 2) { info in
+            guard let room = info.first as? String, room == roomId else {
                 completion(nil)
+                return
             }
+            completion(info.first as? String)
         }
     }
 
-    
-    func joinRoom(player: String, roomName: String, completion: @escaping ([String]?) -> Void) {
-        let roomName = roomName.lowercased()
+    func joinRoom(player: String, roomId: String, completion: @escaping ([String]?) -> Void) {
+        let roomId = roomId.lowercased()
+        let event = SocketEvents.joinRoom.rawValue
         
-        socket.emitWithAck("join-room", roomName, player).timingOut(after: 2) { info in
-            if let players = info.first as? [String], !players.isEmpty {
-                completion(players)
-            } else {
-                completion(nil)
-            }
+        socket.emitWithAck(event, roomId, player).timingOut(after: 2) { info in
+            completion(info.first as? [String])
         }
     }
     
-    func requestStop() {
-        socket.emitWithAck("stop").timingOut(after: 2) { info in
-            print(info)
-            self.delegate?.didReceive(message: "stop requested", data: nil)
+    func requestStop(completion: @escaping () -> Void) {
+        let event = SocketEvents.stop.rawValue
+        socket.emitWithAck(event).timingOut(after: 2) { _ in
+            completion()
         }
     }
     
     func requestStart(completion: @escaping ([Track]?) -> Void) {
-        socket.emitWithAck("start").timingOut(after: 2) { info in
+        let event = SocketEvents.start.rawValue
+        
+        socket.emitWithAck(event).timingOut(after: 2) { info in
             if let tracksString = info.first as? String, let data = tracksString.data(using: .utf8) {
                 completion(try? JSONDecoder().decode([Track].self, from: data))
             } else {
@@ -107,6 +90,26 @@ class GameSocketManager {
         }
     }
     
+    // MARK: - PRIVATE METHODS
+    
+    private func listen(_ event: SocketEvent, completion: ((Any?) -> Void)? = nil) {
+        socket.on(event.rawValue) { [weak self] data, ack in
+            DispatchQueue.main.async {
+                completion?(data.first)
+            }
+
+            let receivedEvent = SocketEvents(rawValue: event.rawValue) ?? .unknown
+            self?.delegate?.didReceive(event: receivedEvent, data: data.first)
+        }
+    }
+    
+    private func setupSocketEventListeners() {
+        socket.on(clientEvent: .connect) { [weak self] _, _ in
+            self?.delegate?.didConnect()
+        }
+        
+        listen(SocketEvents.roomUpdate)
+        listen(SocketEvents.propagateStart)
+        listen(SocketEvents.propagateStop)
+    }
 }
-
-
