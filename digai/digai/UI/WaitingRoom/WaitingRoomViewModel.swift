@@ -8,7 +8,6 @@
 protocol WaitingRoomDelegate {
     func didUpdatePlayers()
     func didStartGame(roomResponse: CreateRoomResponse)
-    func didStopGame()
 }
 
 class WaitingRoomViewModel {
@@ -71,9 +70,6 @@ extension WaitingRoomViewModel: GameSocketManagerDelegate {
                                                   started: true, genres: [])
             delegate?.didStartGame(roomResponse: roomResponse)
             
-        } else if event == .propagateStop {
-            Player.shared.pause()
-            delegate?.didStopGame()
         }
     }
 }
