@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17464AD52826AF7B00B71BBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17464AD42826AF7B00B71BBC /* Assets.xcassets */; };
+		17464AD72826B18E00B71BBC /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17464AD62826B18E00B71BBC /* ViewCode.swift */; };
 		178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */; };
 		17820A0227FA17E900B49CA2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* Player.swift */; };
 		17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* DigaiAPI.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		17464AD42826AF7B00B71BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17464AD62826B18E00B71BBC /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		178209FC27FA17E900B49CA2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		178209FF27FA17E900B49CA2 /* DigaiAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigaiAPI.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				8942613427F64CBF00341F8B /* Assets.xcassets */,
 				17464AD42826AF7B00B71BBC /* Assets.xcassets */,
 				8942613627F64CBF00341F8B /* LaunchScreen.storyboard */,
+				17464AD62826B18E00B71BBC /* ViewCode.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				D7CA22CC2822D182002C8A8F /* CreateRoomViewModel.swift in Sources */,
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
 				D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */,
+				17464AD72826B18E00B71BBC /* ViewCode.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
 				89DACAA72821E84900D5F23E /* Result.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
