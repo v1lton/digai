@@ -50,13 +50,19 @@ class ResultViewModel: ResultViewModelProtocol {
     }
     
     func sendGuesses(_ guesses: [String?]) {
-        socketManager?.trackAssert(guesses: guesses) { data in
-            guard let resultsString = data as? String,
-                  let data = resultsString.data(using: .utf8),
-                  let results = try? JSONDecoder().decode([IndividualResult].self, from: data) else { return }
-                    
-            self.results = Results(individualResults: results, maximumScore: 5)
+        socketManager?.trackAssert(guesses: guesses) { [weak self] data in
+            self?.setResults(from: data)
         }
+    }
+    
+    // MARK: - PRIVATE METHODS
+    
+    private func setResults(from data: Any?) {
+        guard let resultsString = data as? String,
+              let data = resultsString.data(using: .utf8),
+              let results = try? JSONDecoder().decode([IndividualResult].self, from: data) else { return }
+                
+        self.results = Results(individualResults: results, maximumScore: 5)
     }
 }
 
@@ -66,11 +72,7 @@ extension ResultViewModel: GameSocketManagerDelegate {
 
     func didReceive(event: SocketEvents, data: Any?) {
         if event == .resume {
-            guard let resultsString = data as? String,
-                  let data = resultsString.data(using: .utf8),
-                  let results = try? JSONDecoder().decode([IndividualResult].self, from: data) else { return }
-                    
-            self.results = Results(individualResults: results, maximumScore: 5)
+            setResults(from: data)
         }
     }
 }

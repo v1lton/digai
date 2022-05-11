@@ -58,6 +58,11 @@ class WaitingRoomViewController: UIViewController {
         playersLabel.text = viewModel.playersText
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     // MARK: - ACTIONS
 
     @objc private func didTapStartButton(_ sender: UIButton) {
@@ -88,15 +93,15 @@ extension WaitingRoomViewController: ViewCode {
     
     func applyConstraints() {
         NSLayoutConstraint.activate([
-            playersLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            playersLabel.bottomAnchor.constraint(lessThanOrEqualTo: startButton.topAnchor, constant: -20),
-            playersLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            playersLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            playersLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            playersLabel.bottomAnchor.constraint(lessThanOrEqualTo: startButton.topAnchor, constant: -24),
+            playersLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            playersLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
             startButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 36),
             startButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 106),
             startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24)
         ])
     }
     
@@ -105,6 +110,6 @@ extension WaitingRoomViewController: ViewCode {
         
         navigationItem.title = viewModel.roomId
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black,
-                                                                   .font: UIFont(name: "Rubik-Bold", size: 32)]
+                                                                   .font: UIFont(name: "Rubik-Bold", size: 24) ?? .systemFont(ofSize: 24)]
     }
 }

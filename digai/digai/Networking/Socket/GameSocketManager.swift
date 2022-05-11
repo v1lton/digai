@@ -36,7 +36,7 @@ class GameSocketManager {
     // MARK: - INITIALIZERS
     
     init(delegate: GameSocketManagerDelegate? = nil) {
-        self.url = URL(string: "https://1af2-45-70-74-57.sa.ngrok.io")!
+        self.url = URL(string: "http://localhost:3000/")!
         self.delegate = delegate
         
         setupSocketEventListeners()

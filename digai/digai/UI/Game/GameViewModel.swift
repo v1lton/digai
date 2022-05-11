@@ -31,7 +31,6 @@ class GameViewModel {
         self.socketManager = socketManager
         
         self.socketManager?.delegate = self
-        setTracks()
     }
     
     // MARK: - PUBLIC METHODS

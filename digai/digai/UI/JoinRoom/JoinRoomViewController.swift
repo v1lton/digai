@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JoinRoomViewController: UIViewController, UITextFieldDelegate {
+class JoinRoomViewController: UIViewController {
     
     // MARK: - PRIVATE PROPERTIES
     
@@ -102,6 +102,11 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     // MARK: - ACTIONS
     
     @objc private func didTapJoinRoomButton(_ sender: UIButton) {
@@ -137,6 +142,13 @@ extension JoinRoomViewController : JoinRoomDelegate {
     }
 }
 
+extension JoinRoomViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
 // MARK: - ViewCode
 
 extension JoinRoomViewController: ViewCode {
@@ -153,33 +165,34 @@ extension JoinRoomViewController: ViewCode {
     
     func applyConstraints() {
         NSLayoutConstraint.activate([
-            viewTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 97),
+            viewTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             viewTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            viewTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
-            nameTexfieldTitle.topAnchor.constraint(equalTo: viewTitle.bottomAnchor, constant: 29),
+            nameTexfieldTitle.topAnchor.constraint(equalTo: viewTitle.bottomAnchor, constant: 24),
             nameTexfieldTitle.leadingAnchor.constraint(equalTo: viewTitle.leadingAnchor),
+            nameTexfieldTitle.trailingAnchor.constraint(equalTo: viewTitle.trailingAnchor),
             
-            nameTextField.topAnchor.constraint(equalTo: nameTexfieldTitle.bottomAnchor, constant: 5),
+            nameTextField.topAnchor.constraint(equalTo: nameTexfieldTitle.bottomAnchor, constant: 8),
             nameTextField.leadingAnchor.constraint(equalTo: viewTitle.leadingAnchor),
+            nameTextField.trailingAnchor.constraint(equalTo: viewTitle.trailingAnchor),
             nameTextField.heightAnchor.constraint(equalToConstant: 60),
-            nameTextField.widthAnchor.constraint(equalToConstant: 327),
-            nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            codeTexfieldTitle.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 54),
+            codeTexfieldTitle.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 32),
             codeTexfieldTitle.leadingAnchor.constraint(equalTo: viewTitle.leadingAnchor),
+            codeTexfieldTitle.trailingAnchor.constraint(equalTo: viewTitle.trailingAnchor),
             
-            codeTextField.topAnchor.constraint(equalTo: codeTexfieldTitle.bottomAnchor, constant: 5),
+            codeTextField.topAnchor.constraint(equalTo: codeTexfieldTitle.bottomAnchor, constant: 8),
             codeTextField.leadingAnchor.constraint(equalTo: viewTitle.leadingAnchor),
+            codeTextField.trailingAnchor.constraint(equalTo: viewTitle.trailingAnchor),
             codeTextField.heightAnchor.constraint(equalToConstant: 60),
-            codeTextField.widthAnchor.constraint(equalToConstant: 327),
-            codeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            joinRoomButton.topAnchor.constraint(equalTo: codeTextField.bottomAnchor, constant: 29),
+            joinRoomButton.topAnchor.constraint(equalTo: codeTextField.bottomAnchor, constant: 24),
             joinRoomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             joinRoomButton.heightAnchor.constraint(equalToConstant: 36),
             joinRoomButton.widthAnchor.constraint(equalToConstant: 106),
             
-            createRoomButton.topAnchor.constraint(equalTo: joinRoomButton.bottomAnchor, constant: 10),
+            createRoomButton.topAnchor.constraint(equalTo: joinRoomButton.bottomAnchor, constant: 8),
             createRoomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             createRoomButton.heightAnchor.constraint(equalToConstant: 36),
             createRoomButton.widthAnchor.constraint(equalToConstant: 106),

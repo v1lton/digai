@@ -21,7 +21,7 @@ class ResultViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Acertos"
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.font = UIFont(name: "Rubik-Bold", size: 32)
         return label
     }()
     
@@ -122,19 +122,19 @@ extension ResultViewController: ViewCode {
     
     func applyConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 128),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            playAgainButton.widthAnchor.constraint(equalToConstant: 233),
-            playAgainButton.heightAnchor.constraint(equalToConstant: 60),
-            playAgainButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playAgainButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -96),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
             resultsTableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 48),
             resultsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             resultsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            resultsTableView.bottomAnchor.constraint(equalTo: playAgainButton.topAnchor, constant: 32)
+            resultsTableView.bottomAnchor.constraint(equalTo: playAgainButton.topAnchor, constant: 32),
+            
+            playAgainButton.widthAnchor.constraint(equalToConstant: 233),
+            playAgainButton.heightAnchor.constraint(equalToConstant: 60),
+            playAgainButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            playAgainButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
         ])
     }
     
