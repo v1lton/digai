@@ -10,8 +10,7 @@ import AVFoundation
 final class Player {
     
     static let shared = Player()
-    
-    private let api = DigaiAPI()
+
     private var player: AVPlayer?
     
     private init() {}

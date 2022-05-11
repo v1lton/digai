@@ -9,6 +9,10 @@ import UIKit
 
 class ResultTableViewCell: UITableViewCell {
     
+    // MARK: - PUBLIC PROPERTIES
+    
+    static let reuseIdentifier = "ResultCell"
+    
     // MARK: - UI
     
     let containerView: UIView = {
@@ -38,41 +42,35 @@ class ResultTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
-        buildViewHierarchy()
-        constraintUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupView()
     }
     
     // MARK: - PUBLIC FUCTIONS
     
     func setName(_ name: String, for position: Int) {
-        if position == 0 {
-            nameLabel.text = "🎉 \(position + 1). \(name)"
-        } else {
-        nameLabel.text = "\(position + 1). \(name)"
-        }
+        let decorator = position == 0 ? "🎉" : ""
+        nameLabel.text = "\(decorator) \(position + 1). \(name)"
     }
     
     func setResult(userScore: Int, maxiumScore: Int) {
         resultLabel.text = "\(userScore)/\(maxiumScore)"
     }
-    
-    // MARK: - SETUP
-    
-    private func setupView() {
-        contentView.backgroundColor = .white
-    }
-    
-    private func buildViewHierarchy() {
+}
+
+// MARK: - ViewCode
+
+extension ResultTableViewCell: ViewCode {
+    func buildViewHierarchy() {
         contentView.addSubview(containerView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(resultLabel)
     }
     
-    private func constraintUI() {
+    func applyConstraints() {
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -85,5 +83,9 @@ class ResultTableViewCell: UITableViewCell {
             resultLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
             resultLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
         ])
+    }
+    
+    func additionalConfiguration() {
+        contentView.backgroundColor = .white
     }
 }

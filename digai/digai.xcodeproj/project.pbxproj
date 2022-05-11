@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17464AD72826B18E00B71BBC /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17464AD62826B18E00B71BBC /* ViewCode.swift */; };
+		17464ADD2826D84200B71BBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17464ADC2826D84200B71BBC /* Assets.xcassets */; };
+		17464ADF2826DAA800B71BBC /* SocketEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17464ADE2826DAA800B71BBC /* SocketEvents.swift */; };
 		178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */; };
 		17820A0227FA17E900B49CA2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FC27FA17E900B49CA2 /* Player.swift */; };
 		17820A0527FA17E900B49CA2 /* DigaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178209FF27FA17E900B49CA2 /* DigaiAPI.swift */; };
@@ -14,7 +17,6 @@
 		2872725E7F9EA93353E65826 /* Pods_digai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD436DDCA126139424C41C /* Pods_digai.framework */; };
 		8942612C27F64CBB00341F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612B27F64CBB00341F8B /* AppDelegate.swift */; };
 		8942612E27F64CBB00341F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942612D27F64CBB00341F8B /* SceneDelegate.swift */; };
-		8942613527F64CBF00341F8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8942613427F64CBF00341F8B /* Assets.xcassets */; };
 		8942613827F64CBF00341F8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8942613627F64CBF00341F8B /* LaunchScreen.storyboard */; };
 		8942614227F64EAC00341F8B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614127F64EAC00341F8B /* GameViewController.swift */; };
 		8942614427F64EB900341F8B /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942614327F64EB900341F8B /* GameViewModel.swift */; };
@@ -47,6 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17464AD62826B18E00B71BBC /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		17464ADC2826D84200B71BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "digai/Support Files/Resources/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		17464ADE2826DAA800B71BBC /* SocketEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketEvents.swift; sourceTree = "<group>"; };
 		178209F927FA17DE00B49CA2 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		178209FC27FA17E900B49CA2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		178209FF27FA17E900B49CA2 /* DigaiAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigaiAPI.swift; sourceTree = "<group>"; };
@@ -55,7 +60,6 @@
 		8942612827F64CBB00341F8B /* digai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8942612B27F64CBB00341F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8942612D27F64CBB00341F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8942613427F64CBF00341F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8942613727F64CBF00341F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8942613927F64CBF00341F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8942614127F64EAC00341F8B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17464AD32826AF7B00B71BBC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				17464AD82826C0AF00B71BBC /* Resources */,
+				8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */,
+				8942614927FC7E7400341F8B /* iCarousel.h */,
+				8942614B27FC7E8200341F8B /* iCarousel.m */,
+				8942613927F64CBF00341F8B /* Info.plist */,
+				17464AD62826B18E00B71BBC /* ViewCode.swift */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		17464AD82826C0AF00B71BBC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D74CFA3E2820C69300E3818B /* fonts */,
+				17464ADC2826D84200B71BBC /* Assets.xcassets */,
+				8942613627F64CBF00341F8B /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		17464AD92826C11100B71BBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				89DACAA62821E84900D5F23E /* Result.swift */,
+				D7CA22CD28231433002C8A8F /* Track.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		178209F627FA17D700B49CA2 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,19 +186,14 @@
 		8942612A27F64CBB00341F8B /* digai */ = {
 			isa = PBXGroup;
 			children = (
-				D74CFA3E2820C69300E3818B /* fonts */,
-				89CB30F7281F062A0068909C /* UI */,
-				89CB30F6281F061B0068909C /* Networking */,
 				17820A1027FA1A1E00B49CA2 /* Extensions */,
+				17464AD92826C11100B71BBC /* Models */,
+				89CB30F6281F061B0068909C /* Networking */,
 				178209F627FA17D700B49CA2 /* Player */,
+				17464AD32826AF7B00B71BBC /* Support Files */,
+				89CB30F7281F062A0068909C /* UI */,
 				8942612B27F64CBB00341F8B /* AppDelegate.swift */,
 				8942612D27F64CBB00341F8B /* SceneDelegate.swift */,
-				8942613427F64CBF00341F8B /* Assets.xcassets */,
-				8942613627F64CBF00341F8B /* LaunchScreen.storyboard */,
-				8942613927F64CBF00341F8B /* Info.plist */,
-				8942614927FC7E7400341F8B /* iCarousel.h */,
-				8942614B27FC7E8200341F8B /* iCarousel.m */,
-				8942614A27FC7E8200341F8B /* digai-Bridging-Header.h */,
 			);
 			path = digai;
 			sourceTree = "<group>";
@@ -180,8 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				89E3C8542823022500544ED8 /* Cell */,
-				8942614527F64EC900341F8B /* ResultViewModel.swift */,
 				8942614727F64ED600341F8B /* ResultViewController.swift */,
+				8942614527F64EC900341F8B /* ResultViewModel.swift */,
 				89DACAA42821E80400D5F23E /* ResultViewModelProtocol.swift */,
 			);
 			path = Result;
@@ -190,10 +221,10 @@
 		89CB30F6281F061B0068909C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				178209FF27FA17E900B49CA2 /* DigaiAPI.swift */,
 				89CB3116281F333D0068909C /* Requests */,
 				89CB3111281F32680068909C /* Responses */,
 				AD95DE402820B70000EF10AE /* Socket */,
+				178209FF27FA17E900B49CA2 /* DigaiAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -214,11 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				89CB3117281F33720068909C /* CreateRoomResponse.swift */,
-				89DACA902820265600D5F23E /* JoinRoomResponse.swift */,
-				89DACA922820268F00D5F23E /* FetchRoomsResponse.swift */,
 				89DACA962820272C00D5F23E /* ExitRoomResponse.swift */,
-				89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */,
+				89DACA922820268F00D5F23E /* FetchRoomsResponse.swift */,
+				89DACA902820265600D5F23E /* JoinRoomResponse.swift */,
 				89DACA9F2820283300D5F23E /* RestartRoomResponse.swift */,
+				89DACA9A282027CC00D5F23E /* UpdateRoomResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -227,10 +258,10 @@
 			isa = PBXGroup;
 			children = (
 				89CB3112281F32920068909C /* CreateRoomRequest.swift */,
-				89DACA8E282025F200D5F23E /* JoinRoomRequest.swift */,
 				89DACA94282026FB00D5F23E /* ExitRoomRequest.swift */,
-				89DACA982820276E00D5F23E /* UpdateRoomRequest.swift */,
+				89DACA8E282025F200D5F23E /* JoinRoomRequest.swift */,
 				89DACA9D2820281500D5F23E /* RestartRoomRequest.swift */,
+				89DACA982820276E00D5F23E /* UpdateRoomRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -247,8 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				AD95DE412820B72000EF10AE /* GameSocketManager.swift */,
-				89DACAA62821E84900D5F23E /* Result.swift */,
-				D7CA22CD28231433002C8A8F /* Track.swift */,
+				17464ADE2826DAA800B71BBC /* SocketEvents.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -290,8 +320,8 @@
 		D74CFA432820D0BC00E3818B /* WaitingRoom */ = {
 			isa = PBXGroup;
 			children = (
-				D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */,
 				D74CFA462820D11700E3818B /* WaitingRoomViewController.swift */,
+				D74CFA442820D0DF00E3818B /* WaitingRoomViewModel.swift */,
 			);
 			path = WaitingRoom;
 			sourceTree = "<group>";
@@ -364,8 +394,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8942613827F64CBF00341F8B /* LaunchScreen.storyboard in Resources */,
+				17464ADD2826D84200B71BBC /* Assets.xcassets in Resources */,
 				D74CFA402820C6D900E3818B /* Rubik-Bold.ttf in Resources */,
-				8942613527F64CBF00341F8B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +456,8 @@
 				D7CA22CC2822D182002C8A8F /* CreateRoomViewModel.swift in Sources */,
 				178209FA27FA17DE00B49CA2 /* URLRequest+Extensions.swift in Sources */,
 				D74CFA452820D0DF00E3818B /* WaitingRoomViewModel.swift in Sources */,
+				17464AD72826B18E00B71BBC /* ViewCode.swift in Sources */,
+				17464ADF2826DAA800B71BBC /* SocketEvents.swift in Sources */,
 				17820A0227FA17E900B49CA2 /* Player.swift in Sources */,
 				89DACAA72821E84900D5F23E /* Result.swift in Sources */,
 				89CB3113281F32920068909C /* CreateRoomRequest.swift in Sources */,
@@ -592,7 +624,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 28CMR6C7AZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = digai/Info.plist;
+				INFOPLIST_FILE = "digai/Support Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -606,7 +638,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = multimidia.digai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "digai/digai-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "digai/Support Files/digai-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -624,7 +656,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 28CMR6C7AZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = digai/Info.plist;
+				INFOPLIST_FILE = "digai/Support Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -638,7 +670,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = multimidia.digai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "digai/digai-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "digai/Support Files/digai-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -25,7 +25,7 @@ class ResultViewModel: ResultViewModelProtocol {
         getResults()
     }
     
-    // MARK: - PUBLIC PROPERTIES
+    // MARK: - PUBLIC METHODS
     
     func getResultsCount() -> Int {
         return results?.individualResults.count ?? 0
@@ -54,8 +54,8 @@ class ResultViewModel: ResultViewModelProtocol {
             .init(userName: "jac", userScore: 2),
             .init(userName: "scala", userScore: 2),
             .init(userName: "wilton", userScore: 1)
-        ],
-                                     maximumScore: 5)
+        ], maximumScore: 5)
+        
         self.results = results
         delegate?.didGetResults()
     }
