@@ -11,7 +11,8 @@ class ResultViewController: UIViewController {
     
     // MARK: - PRIVATE PROPERTIES
     
-    private var viewModel: ResultViewModelProtocol = ResultViewModel()
+    private var viewModel: ResultViewModelProtocol
+    private let guesses: [String?]
     
     // MARK: - UI
     
@@ -20,7 +21,7 @@ class ResultViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Acertos"
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.font = UIFont(name: "Rubik-Bold", size: 32)
         return label
     }()
     
@@ -32,6 +33,8 @@ class ResultViewController: UIViewController {
         tableView.separatorColor = UIColor.clear
         tableView.register(ResultTableViewCell.self,
                            forCellReuseIdentifier: ResultTableViewCell.reuseIdentifier)
+        tableView.register(LoadingTableViewCell.self,
+                           forCellReuseIdentifier: LoadingTableViewCell.reuseIdentifier)
         return tableView
     }()
     
@@ -44,11 +47,23 @@ class ResultViewController: UIViewController {
     }()
     
     // MARK: - INITIALIZERS
+    
+    init(guesses: [String?], socketManager: GameSocketManager?){
+        self.viewModel = ResultViewModel(socketManager: socketManager)
+        self.guesses = guesses
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         setupView()
+        
+        viewModel.sendGuesses(guesses)
     }
 
     // MARK: - ACTIONS
@@ -88,8 +103,8 @@ extension ResultViewController: UITableViewDataSource {
         guard let cell = cell else { return UITableViewCell() }
         
         if let result = viewModel.getIndividualResult(at: indexPath.row) {
-            cell.setName(result.userName, for: indexPath.row)
-            cell.setResult(userScore: result.userScore, maxiumScore: viewModel.getMaximumScore())
+            cell.setName(result.name, for: indexPath.row)
+            cell.setResult(userScore: result.crowns, maxiumScore: viewModel.getMaximumScore())
         }
         
         return cell
@@ -107,19 +122,19 @@ extension ResultViewController: ViewCode {
     
     func applyConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 128),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            playAgainButton.widthAnchor.constraint(equalToConstant: 233),
-            playAgainButton.heightAnchor.constraint(equalToConstant: 60),
-            playAgainButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playAgainButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -96),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
             resultsTableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 48),
             resultsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             resultsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            resultsTableView.bottomAnchor.constraint(equalTo: playAgainButton.topAnchor, constant: 32)
+            resultsTableView.bottomAnchor.constraint(equalTo: playAgainButton.topAnchor, constant: 32),
+            
+            playAgainButton.widthAnchor.constraint(equalToConstant: 233),
+            playAgainButton.heightAnchor.constraint(equalToConstant: 60),
+            playAgainButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            playAgainButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
         ])
     }
     

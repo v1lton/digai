@@ -36,7 +36,7 @@ class GameSocketManager {
     // MARK: - INITIALIZERS
     
     init(delegate: GameSocketManagerDelegate? = nil) {
-        self.url = URL(string: "http://localhost:3000/")!
+        self.url = URL(string: "https://1af2-45-70-74-57.sa.ngrok.io")!
         self.delegate = delegate
         
         setupSocketEventListeners()
@@ -78,6 +78,13 @@ class GameSocketManager {
         }
     }
     
+    func trackAssert(guesses: [String?], completion: @escaping (Any?) -> Void) {
+        let event = SocketEvents.trackAssert.rawValue
+        socket.emitWithAck(event, guesses).timingOut(after: 2) { info in
+            completion(info.first)
+        }
+    }
+    
     func requestStart(completion: @escaping ([Track]?) -> Void) {
         let event = SocketEvents.start.rawValue
         
@@ -111,5 +118,6 @@ class GameSocketManager {
         listen(SocketEvents.roomUpdate)
         listen(SocketEvents.propagateStart)
         listen(SocketEvents.propagateStop)
+        listen(SocketEvents.resume)
     }
 }

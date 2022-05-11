@@ -11,6 +11,6 @@ public struct Results: Codable {
 }
 
 public struct IndividualResult: Codable {
-    let userName: String
-    let userScore: Int
+    let name: String
+    let crowns: Int
 }

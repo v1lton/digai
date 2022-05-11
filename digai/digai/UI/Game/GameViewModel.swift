@@ -31,7 +31,6 @@ class GameViewModel {
         self.socketManager = socketManager
         
         self.socketManager?.delegate = self
-        setTracks()
     }
     
     // MARK: - PUBLIC METHODS
@@ -69,6 +68,12 @@ class GameViewModel {
     
     public func updateIndex(_ index: Int) {
         self.index = index
+    }
+    
+    func requestStop() {
+        socketManager?.requestStop() { [weak self] in
+            self?.delegate?.didStopGame()
+        }
     }
     
     // MARK: - PRIVATE METHODS

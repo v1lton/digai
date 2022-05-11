@@ -12,12 +12,13 @@ class GameViewController: UIViewController {
     // MARK: - PRIVATE PROPERTIES
     
     private var viewModel: GameViewModel
+    private lazy var carouselHeight: CGFloat = view.frame.width*0.7
     
     // MARK: - UI
     
     private lazy var albunsCarousel: iCarousel = {
-        let carousel = iCarousel(frame: CGRect(x: 0, y: view.frame.midY - 400,
-                                               width: view.frame.size.width, height: 400))
+        let carousel = iCarousel(frame: CGRect(x: 0, y: view.frame.minY + 54,
+                                               width: view.frame.size.width, height: carouselHeight))
         carousel.dataSource = self
         carousel.delegate = self
         carousel.type = .coverFlow2
@@ -60,9 +61,11 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         viewModel.delegate = self
         setupView()
 
+        viewModel.setTracks()
         playSong(atIndex: 0)
     }
 
@@ -85,13 +88,7 @@ class GameViewController: UIViewController {
     // MARK: - ACTIONS
     
     @objc private func didTapStopButton(_ sender: UIButton) {
-        viewModel.socketManager?.requestStop() { [weak self] in
-            self?.didStopGame()
-        }
-    }
-    
-    public func reloadCarouselData() {
-        albunsCarousel.reloadData()
+        viewModel.requestStop()
     }
 }
 
@@ -100,7 +97,10 @@ class GameViewController: UIViewController {
 extension GameViewController: GameViewModelDelegate {
     func didStopGame() {
         Player.shared.pause()
-        navigationController?.pushViewController(ResultViewController(), animated: false)
+        
+        let controller = ResultViewController(guesses: viewModel.getSongTitles(),
+                                              socketManager: viewModel.socketManager)
+        navigationController?.setViewControllers([controller], animated: false)
     }
     
     func didSetTracks() {
@@ -111,6 +111,10 @@ extension GameViewController: GameViewModelDelegate {
 // MARK: - iCarouselDelegate
 
 extension GameViewController: iCarouselDelegate {
+    func carouselWillBeginDragging(_ carousel: iCarousel) {
+        viewModel.updateSongGuess(at: viewModel.getIndex(), with: songTextField.text)
+    }
+    
     func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
         viewModel.updateIndex(carousel.currentItemIndex)
         bindSongTitlesToTextField(forIndex: viewModel.getIndex())
@@ -137,7 +141,7 @@ extension GameViewController: iCarouselDataSource {
             
         } else {
             imageView = UIImageView(frame: CGRect(x: 0, y: 0,
-                                                  width: self.view.frame.size.width/1.2, height: 300))
+                                                  width: carouselHeight, height: carouselHeight))
         }
         
         if let albumURL = viewModel.getAlbumURL(at: index) {
@@ -175,12 +179,12 @@ extension GameViewController: ViewCode {
     
     func applyConstraints() {
         NSLayoutConstraint.activate([
-            songTextField.topAnchor.constraint(equalTo: albunsCarousel.bottomAnchor, constant: 64),
-            songTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            songTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            songTextField.topAnchor.constraint(equalTo: albunsCarousel.bottomAnchor, constant: 24),
+            songTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            songTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             songTextField.heightAnchor.constraint(equalToConstant: 60),
             
-            stopButton.topAnchor.constraint(equalTo: songTextField.bottomAnchor, constant: 32),
+            stopButton.topAnchor.constraint(equalTo: songTextField.bottomAnchor, constant: 16),
             stopButton.widthAnchor.constraint(equalToConstant: 135),
             stopButton.heightAnchor.constraint(equalToConstant: 60),
             stopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
