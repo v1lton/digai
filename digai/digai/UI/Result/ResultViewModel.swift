@@ -48,6 +48,10 @@ class ResultViewModel: ResultViewModelProtocol {
     func getMaximumScore() -> Int {
         return results?.maximumScore ?? 0
     }
+    
+    func sendGuesses(_ guesses: [String?]) {
+        socketManager?.trackAssert(guesses: guesses) {}
+    }
 }
 
 // MARK: - GameSocketManagerDelegate

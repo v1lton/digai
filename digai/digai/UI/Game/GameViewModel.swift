@@ -77,10 +77,6 @@ class GameViewModel {
         }
     }
     
-    func sendGuesses() {
-        socketManager?.trackAssert(guesses: userGuesses) {} 
-    }
-    
     // MARK: - PRIVATE METHODS
     
     public func setTracks() {

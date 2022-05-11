@@ -74,7 +74,7 @@ extension WaitingRoomViewController: WaitingRoomDelegate {
 
     func didStartGame(roomResponse: CreateRoomResponse) {
         let gameController = GameViewController(room: roomResponse, socketManager: viewModel.socketManager)
-        navigationController?.pushViewController(gameController, animated: true)
+        navigationController?.setViewControllers([gameController], animated: true)
     }
 }
 

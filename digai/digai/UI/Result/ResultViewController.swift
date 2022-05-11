@@ -12,6 +12,7 @@ class ResultViewController: UIViewController {
     // MARK: - PRIVATE PROPERTIES
     
     private var viewModel: ResultViewModelProtocol
+    private let guesses: [String?]
     
     // MARK: - UI
     
@@ -47,8 +48,9 @@ class ResultViewController: UIViewController {
     
     // MARK: - INITIALIZERS
     
-    init(socketManager: GameSocketManager?){
+    init(guesses: [String?], socketManager: GameSocketManager?){
         self.viewModel = ResultViewModel(socketManager: socketManager)
+        self.guesses = guesses
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -60,6 +62,8 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         setupView()
+        
+        viewModel.sendGuesses(guesses)
     }
 
     // MARK: - ACTIONS

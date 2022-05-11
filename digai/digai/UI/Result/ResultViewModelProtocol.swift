@@ -16,4 +16,5 @@ protocol ResultViewModelProtocol {
     func getResultsCount() -> Int
     func getIndividualResult(at index: Int) -> IndividualResult?
     func getMaximumScore() -> Int
+    func sendGuesses(_ guesses: [String?])
 }

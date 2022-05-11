@@ -97,11 +97,11 @@ class GameViewController: UIViewController {
 
 extension GameViewController: GameViewModelDelegate {
     func didStopGame() {
-        viewModel.sendGuesses()
         Player.shared.pause()
         
-        let controller = ResultViewController(socketManager: viewModel.socketManager)
-        navigationController?.pushViewController(controller, animated: false)
+        let controller = ResultViewController(guesses: viewModel.getSongTitles(),
+                                              socketManager: viewModel.socketManager)
+        navigationController?.setViewControllers([controller], animated: false)
     }
     
     func didSetTracks() {
