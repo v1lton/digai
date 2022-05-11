@@ -18,7 +18,7 @@ class JoinRoomViewController: UIViewController, UITextFieldDelegate {
     lazy var viewTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Jogaço"
+        label.text = "digai"
         label.font = UIFont(name: "Rubik-Bold" , size: 40)
         label.textColor = .black
         return label

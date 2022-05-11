@@ -50,7 +50,13 @@ class ResultViewModel: ResultViewModelProtocol {
     }
     
     func sendGuesses(_ guesses: [String?]) {
-        socketManager?.trackAssert(guesses: guesses) {}
+        socketManager?.trackAssert(guesses: guesses) { data in
+            guard let resultsString = data as? String,
+                  let data = resultsString.data(using: .utf8),
+                  let results = try? JSONDecoder().decode([IndividualResult].self, from: data) else { return }
+                    
+            self.results = Results(individualResults: results, maximumScore: 5)
+        }
     }
 }
 

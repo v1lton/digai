@@ -78,10 +78,10 @@ class GameSocketManager {
         }
     }
     
-    func trackAssert(guesses: [String?], completion: @escaping () -> Void) {
+    func trackAssert(guesses: [String?], completion: @escaping (Any?) -> Void) {
         let event = SocketEvents.trackAssert.rawValue
-        socket.emitWithAck(event, guesses).timingOut(after: 2) { _ in
-            completion()
+        socket.emitWithAck(event, guesses).timingOut(after: 2) { info in
+            completion(info.first)
         }
     }
     
