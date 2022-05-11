@@ -85,9 +85,7 @@ class GameViewController: UIViewController {
     // MARK: - ACTIONS
     
     @objc private func didTapStopButton(_ sender: UIButton) {
-        viewModel.socketManager?.requestStop() { [weak self] in
-            self?.didStopGame()
-        }
+        viewModel.requestStop()
     }
     
     public func reloadCarouselData() {
@@ -99,8 +97,11 @@ class GameViewController: UIViewController {
 
 extension GameViewController: GameViewModelDelegate {
     func didStopGame() {
+        viewModel.sendGuesses()
         Player.shared.pause()
-        navigationController?.pushViewController(ResultViewController(), animated: false)
+        
+        let controller = ResultViewController(socketManager: viewModel.socketManager)
+        navigationController?.pushViewController(controller, animated: false)
     }
     
     func didSetTracks() {

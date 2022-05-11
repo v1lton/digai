@@ -11,7 +11,7 @@ class ResultViewController: UIViewController {
     
     // MARK: - PRIVATE PROPERTIES
     
-    private var viewModel: ResultViewModelProtocol = ResultViewModel()
+    private var viewModel: ResultViewModelProtocol
     
     // MARK: - UI
     
@@ -32,6 +32,8 @@ class ResultViewController: UIViewController {
         tableView.separatorColor = UIColor.clear
         tableView.register(ResultTableViewCell.self,
                            forCellReuseIdentifier: ResultTableViewCell.reuseIdentifier)
+        tableView.register(LoadingTableViewCell.self,
+                           forCellReuseIdentifier: LoadingTableViewCell.reuseIdentifier)
         return tableView
     }()
     
@@ -44,6 +46,15 @@ class ResultViewController: UIViewController {
     }()
     
     // MARK: - INITIALIZERS
+    
+    init(socketManager: GameSocketManager?){
+        self.viewModel = ResultViewModel(socketManager: socketManager)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,8 +99,8 @@ extension ResultViewController: UITableViewDataSource {
         guard let cell = cell else { return UITableViewCell() }
         
         if let result = viewModel.getIndividualResult(at: indexPath.row) {
-            cell.setName(result.userName, for: indexPath.row)
-            cell.setResult(userScore: result.userScore, maxiumScore: viewModel.getMaximumScore())
+            cell.setName(result.name, for: indexPath.row)
+            cell.setResult(userScore: result.crowns, maxiumScore: viewModel.getMaximumScore())
         }
         
         return cell

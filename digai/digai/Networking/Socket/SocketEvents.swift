@@ -15,5 +15,7 @@ enum SocketEvents: String, SocketEvent {
     case propagateStart = "propagate-start"
     case stop
     case propagateStop = "propagate-stop"
+    case trackAssert = "trackAssert"
+    case resume = "resume"
     case unknown
 }

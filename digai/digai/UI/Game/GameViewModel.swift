@@ -71,6 +71,16 @@ class GameViewModel {
         self.index = index
     }
     
+    func requestStop() {
+        socketManager?.requestStop() { [weak self] in
+            self?.delegate?.didStopGame()
+        }
+    }
+    
+    func sendGuesses() {
+        socketManager?.trackAssert(guesses: userGuesses) {} 
+    }
+    
     // MARK: - PRIVATE METHODS
     
     public func setTracks() {
